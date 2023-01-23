@@ -1,0 +1,87 @@
+{% extends "lenivastore/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Ваша корзина товаров
+{% endblock %}
+
+{% block content %}
+  {% if cart.get_total_price_after_discount %}
+    <h3 class="control_group">Ваша корзина товаров</h3>
+    <div class="cart_cards_wrapper">
+      {% for item in cart %}
+        {% with product=item.product %}
+          <div class="cart_one_card">
+            <h5 class="cart_card_name">{{ product.name }}</h5>
+            <div class="cart_card_content">
+              <div class="cart_img_container">
+                <a href="{{ product.get_absolute_url }}">
+                  <img src="{{ product.image.url }}" alt="" />
+                </a>
+              </div>
+              <div class="cart_add_delete_buttons">
+                <form action="{% url 'cart:cart_add' product.id %}" method="post"
+                          class="add">
+                  {{ item.update_quantity_form.quantity }}
+                  {{ item.update_quantity_form.update }}
+                  {% csrf_token %}
+                  <input type="submit" value="&#x267b;" alt="Обновить">
+                </form>
+                <a href="{% url 'cart:cart_remove' product.id %}">
+                  <i class="fa fa-ban" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="cart_card_price">
+                <p>{{ item.total_price }} руб.</p>
+              </div>
+            </div>
+          </div>
+        {% endwith %}
+      {% endfor %}
+      {% if cart.cupon and cart.cupon.active and cart.cupon.valid_to %}
+        <span class="cart_sums">
+          <p>Сумма без скидки </p>
+          <p>{{ cart.get_total_price }} руб.</p>
+        </span>
+        <span class="cart_sums">
+          <p>Купон на {{ cart.cupon.discount }} % ниже </p>
+          <p>-{{ cart.get_discount|floatformat:"2" }} руб.</p>
+        </span>
+      {% endif %}
+      <span class="cart_sums">
+        <p>Всего </p>
+        <p>{{ cart.get_total_price_after_discount|floatformat:"2" }} руб.</p>
+      </span>
+    </div>
+    <input type="checkbox" id="cupon_hide" class="hide_button"/>
+    <label class="button_base" for="cupon_hide" >Применить купон</label>
+    <div class="content-section cupon_section">
+      <form action="{% url 'cupon:apply' %}" method="post" class="add">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend>Купон</legend>
+  <!--        {{ cupon_apply_form|join:"" }}-->
+          {{ cupon_apply_form|crispy }}
+        </fieldset>
+        <div class="form-group button_section">
+          <input class="button_base blue_button" type="submit" value="Применить">
+        </div>
+      </form>
+    </div>
+  {% else %}
+    <h3>Ваша корзина пуста</h3>
+  {% endif %}
+  <div class="content-section">
+    <div class="wrapper_cart_buttons">
+      <a href="{% url 'lenivastore:product_list'%}" class="button_base blue_button">
+        Продолжить Шопинг
+      </a>
+      {% if cart.get_total_price %}
+        <a href="{% url 'orders:order_create' %}" class="button_base blue_button">
+          Оформить заказ
+        </a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

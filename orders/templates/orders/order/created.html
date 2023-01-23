@@ -1,0 +1,12 @@
+{% extends "lenivastore/base.html" %}
+
+{% block title %}
+  Спасибо за заказ
+{% endblock %}
+
+{% block content %}
+  <div class="content-section">
+    <h2>Спасибо за заказ</h2>
+    <p>Идентификатор вашего заказа: {{ order.id }}</p>
+  </div>
+{% endblock %}

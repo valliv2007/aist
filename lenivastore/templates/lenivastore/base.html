@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=idge">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Open+Sans|Satisfy&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"
+        type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+  <link rel="stylesheet"
+        href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/main.js' %}" async></script>
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <script src="https://yastatic.net/browser-updater/v1/script.js"
+          charset="utf-8"></script>
+  <script>
+      var yaBrowserUpdater = new ya.browserUpdater.init(
+      {
+          "lang":"ru",
+          "browsers":
+          {
+              "yabrowser":"16.12",
+              "chrome":"57",
+              "ie":"11",
+              "opera":"43",
+              "safari":"10.2",
+              "fx":"53",
+              "iron":"35",
+              "flock":"Infinity",
+              "palemoon":"25",
+              "camino":"Infinity",
+              "maxthon":"4.5",
+              "seamonkey":"2.3"
+          },
+          "theme":"yellow"
+      });
+  </script>
+  <!--[if lte IE 9]>
+    <style>
+      main {
+        display: block;
+        min-height: 100%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      nav.bottom_header ul.nav_links {
+        padding-bottom: 10px;
+      }
+      .card_image_container {
+        padding-top: 27%;
+      }
+
+      @media all and (max-width: 600px) {
+        body {
+          overflow-x: hidden;
+        }
+        .top_header, nav.bottom_header ul.nav_links {
+          display: block;
+        }
+      }
+
+      @media all and (max-width: 420px) {
+        .card_image_container {
+          padding-top: 100%;
+        }
+        .card_list_wrapper {
+          grid-gap: 0;
+        }
+      }
+    </style>
+  <![endif]-->
+
+  <div class="wrapper" id="base_wrapper">
+    <header id="header">
+      <span id="menu_header">
+        <p class="fa fa-bars">Меню</p>
+      </span>
+      <div id="wrapper_top_bottom_headers">
+        <div class="top_header">
+          <div id="logo">
+            <a href="{% url 'lenivastore:product_list' %}?next={{request.path}}">
+              <p class="large_logo">Lenivastore</p>
+              <p class="little_logo">LS</p>
+            </a>
+          </div>
+          <div id="search">
+            <form action="{% url 'lenivastore:product_list' %}">
+              <input type="search" placeholder="Поиск" aria-label="Search"
+                     name="search">
+              <button type="submit">
+                Искать
+              </button>
+            </form>
+          </div>
+          <div class="nav_links_right">
+            {% if user.is_authenticated %}
+              <li id="profile_link">
+                <a href="{% url 'users:profile' %}?next={{request.path}}">
+                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+                  Профиль
+                </a>
+              </li>
+              <li id="logout_link">
+                <a href="{% url 'logout' %}">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  Выход
+                </a>
+              </li>
+            {% else %}
+              <li>
+                <a class="color_black" href="{% url 'login' %}">
+                  <i class="fa fa-sign-in icons" aria-hidden="true"></i>
+                  Войти
+                </a>
+              </li>
+              <li>
+                <a class="color_black" href="{% url 'users:register' %}">
+                  <i class="fa fa-user-plus icons" aria-hidden="true"></i>
+                  Регистрация
+                </a>
+              </li>
+            {% endif %}
+          </div>
+        </div>
+        <nav class="bottom_header">
+          <ul class="nav_links">
+            <li class="item_nav">
+              <a href="{% url 'lenivastore:product_list' %}?next={{request.path}}">
+                <i class="fa fa-home icons" aria-hidden="true"></i>
+                Главная
+              </a>
+            </li>
+            <li class="item_nav">
+              <a href="{% url 'lenivastore:about_project' %}?next={{request.path}}">
+                <i class="fa fa-commenting icons" aria-hidden="true"></i>
+                О проекте
+              </a>
+            </li>
+            <li class="item_nav" id="cat_nav">
+              <a href="#">
+                <i class="fa fa-list-ul icons" aria-hidden="true"></i>
+                Категории
+              </a>
+              <ul class="dropdown_menu">
+                <li {% if not category %} class="selected" {% endif %}>
+                  <a href="{% url 'lenivastore:product_list' %}">Все</a>
+                </li>
+                {% for cat in categories %}
+                  <li>
+                    <a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li class="item_nav">
+              {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                  <a href="{% url 'cart:cart_detail' %}">
+                    <i class="fa fa-shopping-cart icons" aria-hidden="true"></i>
+                    Корзина:
+                    {{ total_items }} тов.
+                    <span class="cart_price">{{ cart.get_total_price }} руб.</span>
+                  </a>
+                {% else %}
+                  <a href="{% url 'cart:cart_detail' %}">
+                    <i class="fa fa-shopping-cart icons" aria-hidden="true"></i>
+                    Корзина пуста
+                  </a>
+                {% endif %}
+              {% endwith %}
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <aside></aside>
+    <main>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert {{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% block content %}{% endblock %}
+    </main>
+    <div class="sidebar"></div>
+    <footer id="footer">
+      <div class="wrapper_foot">
+        <div class="left_foot">
+        <h4>Не является</h4>
+        <h4>коммерческим проектом</h4>
+      </div>
+      <div class="center_foot">
+        <h4 id="company_name">LenivaCompany&#169; 2019</h4>
+        <div class="social">
+          <i class="fa fa-vk fa-lg"></i>
+          <i class="fa fa-facebook fa-lg"></i>
+          <i class="fa fa-instagram fa-lg"></i>
+          <i class="fa fa-telegram fa-lg"></i>
+        </div>
+      </div>
+      <div class="right_foot">
+        <h4>Сделанно на Django 2</h4>
+        <h4>
+          <a href="#">
+            <a href="https://github.com/MisterLenivec/django-online-store">
+              <i class="fa fa-github" aria-hidden="true"></i> Проект
+            </a>
+          </a>
+        </h4>
+      </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
