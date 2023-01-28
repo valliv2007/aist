@@ -8,5 +8,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "foodgram.wsgi:application", "--bind", "0:8000" ] 
+CMD ["gunicorn", "onstore.wsgi:application", "--bind", "0:8000" ] 
  
