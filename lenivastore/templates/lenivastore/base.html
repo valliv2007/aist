@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=idge">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Open+Sans|Satisfy&display=swap&subset=cyrillic" rel="stylesheet">
   <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"
-        type="image/x-icon">
+        type="image/x-icon"> 
   <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
   <link rel="stylesheet"
         href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
@@ -77,19 +77,16 @@
   <![endif]-->
 
   <div class="wrapper" id="base_wrapper">
-    <header id="header">
-      <span id="menu_header">
-        <p class="fa fa-bars">Меню</p>
-      </span>
-      <div id="wrapper_top_bottom_headers">
-        <div class="top_header">
-          <div id="logo">
-            <a href="{% url 'lenivastore:product_list' %}?next={{request.path}}">
-              <p class="large_logo">Lenivastore</p>
-              <p class="little_logo">LS</p>
-            </a>
-          </div>
-          <div id="search">
+    <header id="header" class="header">
+      <!--<span id="menu_header">
+        <div class="header__menu-icon"></div>
+      </span>-->
+
+      <a id="logo" class="logo" href="{% url 'lenivastore:product_list' %}?next={{request.path}}">
+        <div class="header__logo"></div>
+      </a>
+
+<!--<div id="search">
             <form action="{% url 'lenivastore:product_list' %}">
               <input type="search" placeholder="Поиск" aria-label="Search"
                      name="search">
@@ -97,55 +94,34 @@
                 Искать
               </button>
             </form>
-          </div>
-          <div class="nav_links_right">
-            {% if user.is_authenticated %}
-              <li id="profile_link">
-                <a href="{% url 'users:profile' %}?next={{request.path}}">
-                  <i class="fa fa-user-circle" aria-hidden="true"></i>
-                  Профиль
-                </a>
-              </li>
-              <li id="logout_link">
-                <a href="{% url 'logout' %}">
-                  <i class="fa fa-sign-out" aria-hidden="true"></i>
-                  Выход
-                </a>
-              </li>
-            {% else %}
-              <li>
-                <a class="color_black" href="{% url 'login' %}">
-                  <i class="fa fa-sign-in icons" aria-hidden="true"></i>
-                  Войти
-                </a>
-              </li>
-              <li>
-                <a class="color_black" href="{% url 'users:register' %}">
-                  <i class="fa fa-user-plus icons" aria-hidden="true"></i>
-                  Регистрация
-                </a>
-              </li>
-            {% endif %}
-          </div>
-        </div>
-        <nav class="bottom_header">
-          <ul class="nav_links">
-            <li class="item_nav">
-              <a href="{% url 'lenivastore:product_list' %}?next={{request.path}}">
-                <i class="fa fa-home icons" aria-hidden="true"></i>
-                Главная
+          </div>-->
+
+        <nav>
+          <ul class="header__link-container">
+            <li class="header__link">
+              <a href="#about">
+                О компании
               </a>
             </li>
-            <li class="item_nav">
-              <a href="{% url 'lenivastore:about_project' %}?next={{request.path}}">
-                <i class="fa fa-commenting icons" aria-hidden="true"></i>
-                О проекте
+            <li class="header__link">
+              <a href="#news">
+                Новости ФНС и маркировки
               </a>
             </li>
-            <li class="item_nav" id="cat_nav">
+            <li class="header__link">
+              <a href="#equipment">
+                Торговое оборудование
+              </a>
+            </li>
+            <li class="header__link">
+              <a href="#services">
+                Услуги
+              </a>
+            </li>
+        <!--    <li class="item_nav" id="cat_nav">
               <a href="#">
                 <i class="fa fa-list-ul icons" aria-hidden="true"></i>
-                Категории
+                1C
               </a>
               <ul class="dropdown_menu">
                 <li {% if not category %} class="selected" {% endif %}>
@@ -158,6 +134,7 @@
                 {% endfor %}
               </ul>
             </li>
+            
             <li class="item_nav">
               {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
@@ -174,11 +151,54 @@
                   </a>
                 {% endif %}
               {% endwith %}
-            </li>
+            </li>-->
           </ul>
+
+
+
+<!--
         </nav>
-      </div>
+        <div class="header__into-container">
+          <a class="header__int-link" href="{% url 'login' %}">
+            <p>Войти</p>
+          </a>
+        </div>
+-->
+
+
+
+<!--
+        <ul class="nav_links_right">
+          {% if user.is_authenticated %}
+            <li id="profile_link">
+              <a href="{% url 'users:profile' %}?next={{request.path}}">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                Профиль
+              </a>
+            </li>
+            <li id="logout_link">
+              <a href="{% url 'logout' %}">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                Выход
+              </a>
+            </li>
+          {% else %}
+            <li>
+              <a class="color_black" href="{% url 'login' %}">
+                <i class="fa fa-sign-in icons" aria-hidden="true"></i>
+                Войти
+              </a>
+            </li>
+            <li>
+              <a class="color_black" href="{% url 'users:register' %}">
+                <i class="fa fa-user-plus icons" aria-hidden="true"></i>
+                Регистрация
+              </a>
+            </li>
+          {% endif %}
+          </ul>-->
     </header>
+
     <aside></aside>
     <main>
       {% if messages %}
@@ -191,32 +211,14 @@
       {% block content %}{% endblock %}
     </main>
     <div class="sidebar"></div>
-    <footer id="footer">
-      <div class="wrapper_foot">
-        <div class="left_foot">
-        <h4>Не является</h4>
-        <h4>коммерческим проектом</h4>
-      </div>
-      <div class="center_foot">
-        <h4 id="company_name">LenivaCompany&#169; 2019</h4>
-        <div class="social">
-          <i class="fa fa-vk fa-lg"></i>
-          <i class="fa fa-facebook fa-lg"></i>
-          <i class="fa fa-instagram fa-lg"></i>
-          <i class="fa fa-telegram fa-lg"></i>
-        </div>
-      </div>
-      <div class="right_foot">
-        <h4>Сделанно на Django 2</h4>
-        <h4>
-          <a href="#">
-            <a href="https://github.com/MisterLenivec/django-online-store">
-              <i class="fa fa-github" aria-hidden="true"></i> Проект
-            </a>
-          </a>
-        </h4>
-      </div>
-      </div>
+    <footer id="footer" class="footer">
+      <h3 class="footer__title">Контакты:</h3>
+    <div class="footer__container">
+      <p class="footer__name">ООО "Аист"</p>
+      <p class="footer__adress">пр-т. Энгельса, 73, Санкт-Петербург, Россия, 194214</p>  
+      <p class="footer__tel">+7 495 99 405 89</p>
+      <p class="footer__mail">info@aist.ru</p>
+    </div>
     </footer>
   </div>
 </body>

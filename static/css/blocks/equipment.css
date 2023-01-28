@@ -1,0 +1,120 @@
+.equipment {
+  padding-bottom: 50px;
+}
+.equipment__title {
+    display: flex;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    line-height: 1.15;
+    font-size: 60px;
+    font-weight: 600;
+    max-width: 400px;
+}
+
+@media screen and (max-width: 800px) {
+    .equipment__title  {
+        font-size: 42px;
+        font-weight: 500;
+        max-width: 300px;
+    }
+}
+
+.equipment__container {
+    display: flex;
+    flex-direction: column;
+    
+    max-width: 1000px;
+    margin: auto;
+    padding: 0;
+}
+
+@media screen and (max-width: 1020px) {
+    .equipment__container  {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.equipment__item {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+@media screen and (max-width: 700px) {
+    .equipment__item  {
+        flex-direction: column;
+        height: 550px;
+        margin: auto;
+        margin-bottom: 30px;
+        justify-content: start;
+    }
+}
+
+.equipment__img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .equipment__img  {
+        width: 100%;
+    }
+}
+
+.equipment__description-container {
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.equipment__item-title {
+   /*margin-bottom: 20px;*/
+   margin: 0;
+}
+.equipment__item-description {
+
+}
+
+.equipment__link {
+    cursor: pointer;
+}
+
+.equipment__link:hover {
+    opacity: 0.7;
+}
+
+.equipment__link-add {
+   margin-right: 10px;
+}
+
+.equipment__bin {
+    background-image: url(../../../static/images/shoppingbin.svg);  
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+   /* position: absolute;
+    bottom: 20px;
+    right: 20px;*/
+}
+
+.equipment__bin-container {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
