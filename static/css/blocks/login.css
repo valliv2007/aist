@@ -1,0 +1,19 @@
+.login__form {
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.login__input {
+    border: 2px solid orange;
+    width: 100%;
+    height: 80px;
+}
+
+.form-legend {
+    font-size: 46px;
+    font-weight: 500
+}
