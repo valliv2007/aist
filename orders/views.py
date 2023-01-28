@@ -7,12 +7,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.core.mail import get_connection, EmailMultiAlternatives
 from io import BytesIO
 from django.views.decorators.csrf import csrf_exempt
-import os
-
-os.add_dll_directory(r"C:\Program Files\GTK3-Runtime Win64\bin")
 
 #import weasyprint
-
 
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
