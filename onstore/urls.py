@@ -22,8 +22,7 @@ from django.conf.urls.static import static
 from users import views as user_views
 
 
-urlpatterns = [
-    path('', include('lenivastore.urls')),
+urlpatterns = [ 
     path('cart/', include('cart.urls', namespace='cart')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('payment/', include('payment.urls', namespace='payment')),
@@ -32,6 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls', namespace='users')),
+    path('', include('lenivastore.urls'))
 ]
 
 if settings.DEBUG:
