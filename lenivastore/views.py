@@ -5,6 +5,8 @@ from django.db.models import Q
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 
+def index(request):
+     return render(request, 'lenivastore/product/index.html')
 
 def product_list(request, category_slug=None):
     category = None
