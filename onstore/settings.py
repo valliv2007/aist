@@ -200,4 +200,4 @@ AWS_S3_SIGNATURE_VERSION = os.environ.get('my_aws_s3_signature_version')
 
 #DEFAULT_FILE_STORAGE = os.environ.get('my_default_file_storage')
 
-# django_heroku.settings(locals())
+#django_heroku.settings(locals())
