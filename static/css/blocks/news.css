@@ -86,3 +86,10 @@
     overflow: hidden;
   }
   */
+.news__card-title {
+  cursor: pointer;
+}
+
+.news__card-title:hover {
+  opacity: 0.7;
+}
