@@ -6,6 +6,7 @@
 @import url(./blocks/equipment.css);
 @import url(./blocks/backform.css);
 @import url(./blocks/login.css);
+@import url(./blocks/services-general.css);
 
 body {
   font-family: 'Open Sans', sans-serif;

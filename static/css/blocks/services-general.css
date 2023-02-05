@@ -1,0 +1,120 @@
+.services-general {
+  
+}
+.services-general__cards {
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 0;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 800px) {
+    .services-general__cards  {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .services-general__cards  {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+.services-general__card {
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  background-image: url(../../../static/images/pattern.png);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+    .services-general__card  {
+        flex-direction: column;
+    }
+}
+
+.services-general__card-img-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  border-radius: 20px;
+  
+}
+
+@media screen and (max-width: 600px) {
+    .services-general__card-img-container {
+        width: 100%;
+    }
+}
+
+.services-general__card-img {
+  margin: auto;
+  display: flex;
+  object-fit: cover;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 100%;
+  height: 100px;
+}
+
+.services-general__card-img-title {
+    
+    margin-top: 0;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    display: flex;
+}
+    
+.services-general__card-text-container {
+    border-radius: 20px;
+    background-image: url(../../../static/images/background.jpg);
+    width: 70%;
+    padding-left: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .services-general__card-text-container {
+        width: 100%;
+    }
+}
+
+.services-general__card-text-title {
+  font-size: 20px;
+}
+
+.services-general__card-text-ul {
+    padding: 0;
+}
+
+.services-general__card-text-li {
+  margin-bottom: 15px;
+}
+
+.services-general__card-btn {
+    width: 200px;
+    height: 55px;
+    background-color: #f8dc80;
+    border: 1px solid rgb(247, 194, 20);
+    border-radius: 40px;
+    color: #212529;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.services-general__card-btn:hover {
+    background-color: rgb(247, 194, 20);
+    border: 1px solid #f8dc80;
+}
+
