@@ -97,15 +97,20 @@
 
 .equipment__link-add {
    margin-right: 10px;
+   cursor: pointer;
+}
+
+.equipment__link-add:hover {
+    font-size: 18px;
 }
 
 .equipment__bin {
-    background-image: url(../../../static/images/shoppingbin.svg);  
+    /*background-image: url(../../../static/images/shoppingbin.svg);  
     background-position: center;
     background-repeat: no-repeat;
     width: 40px;
     height: 40px;
-    cursor: pointer;
+    cursor: pointer;*/
    /* position: absolute;
     bottom: 20px;
     right: 20px;*/
@@ -118,3 +123,9 @@
     right: 20px;
 }
 
+.equipment__price {
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 5px;
+}

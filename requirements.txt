@@ -29,7 +29,7 @@ packaging==23.0
 phonenumbers==8.10.21
 Pillow==9.0.1
 pipwin==0.5.2
-psycopg2-binary==2.9.5
+#psycopg2==2.9.5
 pycparser==2.19
 pyjsparser==2.7.1
 Pyphen==0.9.5

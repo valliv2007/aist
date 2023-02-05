@@ -77,6 +77,12 @@
   <![endif]-->
 
   <div class="wrapper" id="base_wrapper">
+    <div class="header__contacts">
+      <nav class="header__contacts-nav-container">
+          <p class="header__contacts-container-li">телефон: <span class="header__contacts-span">8-916-245-22-22</span></p>
+          <p class="header__contacts-container-li">email: <span class="header__contacts-span">aist@yandex.ru</span></p>
+      </nav>
+    </div>
     <header id="header" class="header">
       <!--<span id="menu_header">
         <div class="header__menu-icon"></div>
@@ -84,6 +90,7 @@
 
       <a id="logo" class="logo" href="{% url 'lenivastore:index' %}">  <!--?next={{request.path}}--> 
         <div class="header__logo"></div>
+        <p class="header__logo-text">А.И.С.Т.</p>
       </a>
 
 <!--<div id="search">
@@ -99,25 +106,33 @@
         <nav>
           <ul class="header__link-container">
             <li class="header__link">
-              <a href="#about">
+              <a class="header__link" href="#about">
                 О компании
               </a>
             </li>
             <li class="header__link">
-              <a href="#news">
-                Новости ФНС и маркировки
-              </a>
-            </li>
-            <li class="header__link">
-              <a href="#equipment">
+              <a class="header__link" href="#equipment">
                 Торговое оборудование
               </a>
             </li>
             <li class="header__link">
-              <a href="#services">
+              <a class="header__link" href="#services">
                 Услуги
               </a>
             </li>
+            <li class="header__link">
+              <a class="header__link" href="#news">
+                Новости ФНС и маркировки
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+
+
+
+
+
         <!--    <li class="item_nav" id="cat_nav">
               <a href="#">
                 <i class="fa fa-list-ul icons" aria-hidden="true"></i>
@@ -152,13 +167,9 @@
                 {% endif %}
               {% endwith %}
             </li>-->
-          </ul>
 
 
-
-<!--
-        </nav>
-        <div class="header__into-container">
+      <!--  <div class="header__into-container">
           <a class="header__int-link" href="{% url 'login' %}">
             <p>Войти</p>
           </a>
@@ -215,10 +226,11 @@
       <h3 class="footer__title">Контакты:</h3>
     <div class="footer__container">
       <p class="footer__name">ООО "Аист"</p>
-      <p class="footer__adress">пр-т. Энгельса, 73, Санкт-Петербург, Россия, 194214</p>  
+      <p class="footer__adress">Адрес головного офиса: пр-т. Энгельса, 73, Санкт-Петербург, Россия, 194214</p>  
       <p class="footer__tel">+7 495 99 405 89</p>
       <p class="footer__mail">info@aist.ru</p>
     </div>
+    <div class="footer__logo"></div>
     </footer>
   </div>
 </body>
