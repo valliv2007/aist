@@ -372,7 +372,7 @@
 }
 
 .header__vector-illustration {
-    background-image: url(../../../static/images/Vector.png);
+    /*background-image: url(../../../static/images/Vector.png);*/
     width: 100%;
     z-index: 0;
     position: absolute;
