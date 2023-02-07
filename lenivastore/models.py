@@ -62,3 +62,15 @@ class Product(models.Model):
     # def save(self, *args, **kwargs):
     #     self.slug = slugify(self.brand_name)
     #     super(Brand, self).save(*args, **kwargs)
+
+class News (models.Model):
+    title = models.CharField(max_length=100, verbose_name="Заголовок")
+    link = models.CharField(max_length=300, unique=True, blank=True, verbose_name="Ссылка")  # db_index=True
+    image = models.ImageField(upload_to='images/', blank=True, verbose_name="Изображение_новости")
+
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+
+    def __str__(self):
+        return self.title
