@@ -1,10 +1,15 @@
 .services-general {
   
 }
+
+
 .services-general__cards {
-  margin: auto;
+  /*margin: auto;*/
+  margin-left: 150px;
+  margin-right: 150px;
   padding: 0;
-  max-width: 1200px;
+  /*max-width: 1200px;*/
+  max-width: 100%;
   display: flex;
   flex-direction: column;
 }
