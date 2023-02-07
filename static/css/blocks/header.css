@@ -420,7 +420,13 @@
     font-size: 20px;
     font-weight: 600;
     color: rgb(42, 143, 244);
+    cursor: pointer;
 }
+
+.header__contacts-span:hover {
+    color: rgb(87, 163, 240);
+}
+
 
 .header__pattern-illustrarion {
     background-image: url(../../../static/images/pattern.png);

@@ -8,7 +8,7 @@
 @import url(./blocks/login.css);
 @import url(./blocks/services-general.css);
 @import url(./blocks/product.css);
-@import url(./blocks/detail.css);
+@import url(./blocks/detail-bin.css);
 
 body {
   font-family: 'Open Sans', sans-serif;

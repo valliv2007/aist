@@ -94,22 +94,13 @@
 }
 
 .equipment__item-description {
-    white-space: nowrap; /* Запрещаем перенос строк */
+    /*white-space: nowrap;  Запрещаем перенос строк */
     overflow: hidden; /* Обрезаем все, что не помещается в область */
-
     text-overflow: ellipsis;
+    /*text-overflow: clip;*/
 
     width: 80%;
     height: 200px;
-}
-
-.equipment__item-description-text {
-    margin: 0;
-
-    white-space: nowrap; /* Запрещаем перенос строк */
-    overflow: hidden; /* Обрезаем все, что не помещается в область */
-
-    text-overflow: ellipsis;
 
     font-weight: 400;
     font-size: 16px;

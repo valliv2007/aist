@@ -8,21 +8,19 @@
 
 {% block content %}
   {% if cart.get_total_price_after_discount %}
-    <h3 class="control_group">Ваша корзина товаров</h3>
-    <div class="cart_cards_wrapper">
+    <h3 class="detail-bin__title">Ваша корзина товаров</h3>
+    <div class="detail-bin__carts">
       {% for item in cart %}
         {% with product=item.product %}
           <div class="cart_one_card">
             <h5 class="cart_card_name">{{ product.name }}</h5>
             <div class="cart_card_content">
 
-              <div class="detail-cart__img-container">
-                <a 
-                  class="detail-cart__img-link"
-                  href="{{ product.get_absolute_url }}">
-                    <img 
-                      class="detail-cart__img"
-                      src="{{ product.image.url }}" alt="" />
+              <div class="detail-bin-cart__img-container">
+                <a class="detail-bin-cart__img-link" href="{{ product.get_absolute_url }}">
+                  <img 
+                    class="detail-bin-cart__img"
+                    src="{{ product.image.url }}" alt="" />
                 </a>
               </div>
 
