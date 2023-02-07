@@ -1,7 +1,12 @@
+.detail-bin {
+    background-color: #f2f2f2;
+}
+
 .detail-bin-cart__img-container {
     width: 300px;
     height: 300px;
     border: 2px solid blueviolet;
+    
 }
 
 .detail-bin-cart__img {
@@ -13,6 +18,11 @@
     margin: 150px;
     max-width: 100%;
     border: 2px solid orchid;
+    background-color: #fff;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
 
 @media screen and (max-width: 800px) {

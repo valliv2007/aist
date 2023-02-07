@@ -7,7 +7,9 @@
 {% endblock %}
 
 {% block content %}
+<div class="detail-bin">  
   {% if cart.get_total_price_after_discount %}
+  
     <h3 class="detail-bin__title">Ваша корзина товаров</h3>
     <div class="detail-bin__carts">
       {% for item in cart %}
@@ -41,7 +43,7 @@
           </div>
         {% endwith %}
       {% endfor %}
-      {% if cart.cupon and cart.cupon.active and cart.cupon.valid_to %}
+<!--    {% if cart.cupon and cart.cupon.active and cart.cupon.valid_to %}
         <span class="cart_sums">
           <p>Сумма без скидки </p>
           <p>{{ cart.get_total_price }} руб.</p>
@@ -50,27 +52,27 @@
           <p>Купон на {{ cart.cupon.discount }} % ниже </p>
           <p>-{{ cart.get_discount|floatformat:"2" }} руб.</p>
         </span>
-      {% endif %}
+      {% endif %}-->
       <span class="cart_sums">
         <p>Всего </p>
         <p>{{ cart.get_total_price_after_discount|floatformat:"2" }} руб.</p>
       </span>
     </div>
-    <input type="checkbox" id="cupon_hide" class="hide_button"/>
+    <!--<input type="checkbox" id="cupon_hide" class="hide_button"/>
     <label class="button_base" for="cupon_hide" >Применить купон</label>
     <div class="content-section cupon_section">
       <form action="{% url 'cupon:apply' %}" method="post" class="add">
         {% csrf_token %}
         <fieldset class="form-group">
           <legend>Купон</legend>
-  <!--        {{ cupon_apply_form|join:"" }}-->
+   ////////был комментарий{{ cupon_apply_form|join:"" }} ////////был комментарий
           {{ cupon_apply_form|crispy }}
         </fieldset>
         <div class="form-group button_section">
           <input class="button_base blue_button" type="submit" value="Применить">
         </div>
       </form>
-    </div>
+    </div>-->
   {% else %}
     <h3>Ваша корзина пуста</h3>
   {% endif %}
@@ -86,4 +88,5 @@
       {% endif %}
     </div>
   </div>
+</div>  
 {% endblock %}

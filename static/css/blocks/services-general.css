@@ -1,14 +1,13 @@
 .services-general {
-  
+  background-color: #fff;
+  /*border-bottom: 2px solid rgb(247, 194, 20);*/
 }
 
 
 .services-general__cards {
-  /*margin: auto;*/
   margin-left: 150px;
   margin-right: 150px;
   padding: 0;
-  /*max-width: 1200px;*/
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -30,6 +29,7 @@
 
 .services-general__card {
   width: 100%;
+  height: 300px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: row;
@@ -37,11 +37,16 @@
   background-image: url(../../../static/images/pattern.png);
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
 
 @media screen and (max-width: 600px) {
     .services-general__card  {
         flex-direction: column;
+        height: 500px;
     }
 }
 
@@ -81,7 +86,14 @@
     
 .services-general__card-text-container {
     border-radius: 20px;
-    background-image: url(../../../static/images/background.jpg);
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-color: #f2f2f2;
+    background-image: url(../../../static/images/pattern.png);
+    /*background-image: url(../../../static/images/background.jpg);*/
+
     width: 70%;
     padding-left: 50px;
 }
@@ -112,9 +124,12 @@
     border-radius: 40px;
     color: #212529;
     cursor: pointer;
-    margin-bottom: 20px;
+   
     margin-top: 20px;
     font-size: 16px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
 }
 
 .services-general__card-btn:hover {
@@ -122,3 +137,27 @@
     border: 1px solid #f8dc80;
 }
 
+.services-general__card-add-btn {
+    border: none;
+    border-radius: 15px;
+    /*width: 300px;*/
+    margin-left: 100px;
+    margin-right: 100px;
+    max-width: 100%;
+    height: 55px;
+    /*margin: auto;*/
+    margin-top: 80px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+
+  }
+
+  .services-general__card-add-btn:hover {
+    opacity: 0.7;
+    height: 57px;
+  }

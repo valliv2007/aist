@@ -81,7 +81,7 @@
       <nav class="header__contacts-nav-container">
           <p class="header__contacts-container-li">телефон: <span class="header__contacts-span">8-916-245-22-22</span></p>
           <p class="header__contacts-container-li">email: <span class="header__contacts-span">aist@yandex.ru</span></p>
-          <div class="item_nav">
+          <div class="header__contacts-nav-bin">
               {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                   <a href="{% url 'cart:cart_detail' %}">
@@ -148,12 +148,6 @@
             </li>
           </ul>
         </nav>
-
-
-
-
-
-
         <!--    <li class="item_nav" id="cat_nav">
               <a href="#">
                 <i class="fa fa-list-ul icons" aria-hidden="true"></i>
@@ -242,7 +236,9 @@
       {% endif %}
       {% block content %}{% endblock %}
     </main>
+
     <div class="sidebar"></div>
+
     <footer id="footer" class="footer">
       <h3 class="footer__title">Контакты:</h3>
     <div class="footer__container">
