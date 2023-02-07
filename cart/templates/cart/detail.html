@@ -12,14 +12,12 @@
     <div class="detail-bin__carts">
       {% for item in cart %}
         {% with product=item.product %}
-          <div class="cart_one_card">
-            <h5 class="cart_card_name">{{ product.name }}</h5>
+          <div class="detail-bin__card-item">
+            <h3 class="cart_card_name">{{ product.name }}</h3>
             <div class="cart_card_content">
-
               <div class="detail-bin-cart__img-container">
                 <a class="detail-bin-cart__img-link" href="{{ product.get_absolute_url }}">
-                  <img 
-                    class="detail-bin-cart__img"
+                  <img class="detail-bin-cart__img"
                     src="{{ product.image.url }}" alt="" />
                 </a>
               </div>
