@@ -53,7 +53,7 @@ def offline_paid(request, cart):
     connection = get_connection()
     connection.open()
 
-    subject = 'Lenivastore - Заказ номер {} оформлен'.format(order.id)
+    subject = 'АИСТ - Заказ номер {} оформлен'.format(order.id)
     message = render_to_string('orders/order/mail.txt',
                                {'order': order})
     html_content = render_to_string('orders/order/mail.html',
@@ -65,7 +65,7 @@ def offline_paid(request, cart):
                             #stylesheets=[weasyprint.CSS(
                            # settings.STATIC_ROOT + '/css/style.css')])  # + 'css/bootstrap.min.css'
     msg = EmailMultiAlternatives(subject, message,
-                                 settings.EMAIL_HOST_USER, [order.email],
+                                 settings.EMAIL_HOST_USER, [order.email, 'valliv2007@ya.ru'],
                                  connection=connection)
     msg.attach_alternative(html_content, "text/html")
     msg.attach('order_{}.pdf'.format(order.id), out.getvalue(),

@@ -5,8 +5,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('my_secret_key', "שלום")
@@ -83,8 +81,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'onstore.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
 
 if not DEBUG:
     DATABASES = {
@@ -107,8 +104,6 @@ else:
     }    
 
 
-# Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -126,8 +121,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'ru-RU'
 
@@ -163,7 +156,8 @@ CART_SESSION_ID = 'cart'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-EMAIL_BACKEND = os.environ.get('my_email_backend')
+EMAIL_BACKEND = os.environ.get('my_email_backend', 'django.core.mail.backends.filebased.EmailBackend')
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 EMAIL_HOST = os.environ.get('my_email_host')
 EMAIL_PORT = int(os.environ.get('my_email_port', 5225))
 EMAIL_HOST_USER = os.environ.get('my_email_host_user')
