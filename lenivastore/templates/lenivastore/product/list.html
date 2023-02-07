@@ -7,8 +7,77 @@
 {% endblock %}
 
 {% block content %}
+<section class="equipment" id="equipment">
+  <!--<div class="back__button">
+    <a href="{{request.META.HTTP_REFERER}}">Назад</a>
+  </div>-->
+
+  <h2 class="equipment__title">{% if category %}{{ category.name }}{% else %}Оборудование{% endif %}</h2>
+
+  <ul class="equipment__container">
+    {% for product in page_object.object_list %}
+    <li class="equipment__item">
+
+      <a class="equipment__img-container">
+        <img class="equipment__img" src="{% if product.image %}{{ product.image.url }}{% else %}
+        {% static 'images/no-image.jpeg'%}{% endif %}" alt="Фото товара">
+      </a>  
+
+      <div class="equipment__description-container">
+
+        <p class="equipment__item-title">{{ product.name }}</p>
+
+        <div class="equipment__item-description">
+          <p class="equipment__item-description-text">{{ product.description | linebreaks}}</p>
+        </div>
+        
+
+        <p>Цена: <span class="equipment__price">{{ product.price }} р.</span></p>
+
+        <a class="equipment__link" href="{{ product.get_absolute_url }}?next={{request.path}}">Посмотреть детали →</a>
+      </div>
+
+        <form 
+          class="equipment__bin-container" 
+          action="{% url 'cart:cart_add' product.id %}" 
+          method="post">
+            {{ cart_product_form|join:"" }}
+            {% csrf_token %}
+          <input class="equipment__link-add" type="submit" value="Добавить в корзину">
+        </form>
+
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="pagination">
+    {% if is_paginated %}
+      {% if page_object.has_previous %}
+        <a class="first_page" href="?page=1">Первая</a>
+        <a class="prev_page" href="?page={{ page_object.previous_page_number }}">
+          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+
+      {% for num in page_object.paginator.page_range %}
+        {% if page_object.number == num %}
+          <a class="nums_page selected_page" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_object.number|add:'-3' and num < page_object.number|add:'3' %}
+          <a class="nums_page" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_object.has_next %}
+        <a class="next_page" href="?page={{ page_object.next_page_number }}">
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+        <a class="last_page" href="?page={{ page_object.paginator.num_pages }}">Последняя</a>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+<!--
   <h3 class="page_title">
-    {% if category %}{{ category.name }}{% else %}Товары{% endif %}fghjkk
+    {% if category %}{{ category.name }}{% else %}Товары{% endif %}
   </h3>
   <div class="card_list_wrapper">
     <div class="cards">
@@ -20,6 +89,7 @@
               {% static 'images/no-image.jpeg'%}{% endif %}">
             </a>
           </div>
+
           <div class="card_content">
             <div class="card_title">
               <a class="text-medium" href="{{ product.get_absolute_url }}?next={{request.path}}">
@@ -27,6 +97,7 @@
               </a>
             </div>
           </div>
+
           <div class="card_info">
             <p class="card_price text-medium">{{ product.price }} руб.</p>
           </div>
@@ -58,5 +129,5 @@
         <a class="last_page" href="?page={{ page_object.paginator.num_pages }}">Последняя</a>
       {% endif %}
     {% endif %}
-  </div>
+  </div>-->
 {% endblock %}

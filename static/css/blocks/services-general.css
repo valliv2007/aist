@@ -4,7 +4,7 @@
 .services-general__cards {
   margin: auto;
   padding: 0;
-  max-width: 1500px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
 }

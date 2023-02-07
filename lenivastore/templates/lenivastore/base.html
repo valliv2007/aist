@@ -81,6 +81,23 @@
       <nav class="header__contacts-nav-container">
           <p class="header__contacts-container-li">телефон: <span class="header__contacts-span">8-916-245-22-22</span></p>
           <p class="header__contacts-container-li">email: <span class="header__contacts-span">aist@yandex.ru</span></p>
+          <div class="item_nav">
+              {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                  <a href="{% url 'cart:cart_detail' %}">
+                    <i class="fa fa-shopping-cart icons" aria-hidden="true"></i>
+                    Корзина:
+                    {{ total_items }} тов.
+                    <span class="cart_price">{{ cart.get_total_price }} руб.</span>
+                  </a>
+                {% else %}
+                  <a href="{% url 'cart:cart_detail' %}">
+                    <i class="fa fa-shopping-cart icons" aria-hidden="true"></i>
+                    Корзина пуста
+                  </a>
+                {% endif %}
+              {% endwith %}
+          </div>
       </nav>
     </div>
     <header id="header" class="header">
@@ -106,23 +123,27 @@
         <nav>
           <ul class="header__link-container">
             <li class="header__link">
-              <a class="header__link" href="#about">
-                О компании
+              <a class="header__link" 
+                href="{% if request.path == '/' %} #about {% else %} /#about {% endif %}">
+                  О компании
               </a>
             </li>
             <li class="header__link">
-              <a class="header__link" href="#equipment">
-                Торговое оборудование
+              <a class="header__link" 
+                href="{% url 'lenivastore:product_list_by_category' 'oborudovanie'%}">
+                  Торговое оборудование
               </a>
             </li>
             <li class="header__link">
-              <a class="header__link" href="#services">
-                Услуги
+              <a class="header__link" 
+                href="{% url 'lenivastore:product_list_by_category' 'uslugi' %}">
+                  Услуги
               </a>
             </li>
             <li class="header__link">
-              <a class="header__link" href="#news">
-                Новости ФНС и маркировки
+              <a class="header__link" 
+                href="{% if request.path == '/' %} #news {% else %} /#news {% endif %}">
+                  Новости ФНС и маркировки
               </a>
             </li>
           </ul>

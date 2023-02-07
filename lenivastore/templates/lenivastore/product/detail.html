@@ -7,41 +7,95 @@
 {% endblock %}
 
 {% block content %}
-  <h3 class="back_button">
-    <a href="{{request.META.HTTP_REFERER}}">Назад</a>
-  </h3>
-  <div class="product_detail_wrapper">
-    <h3>
-      <a href="{{ product.category.get_absolute_url }}">
-        {{ product.category }}
-      </a>
-    </h3>
-    <h2>{{ product.name }}</h2>
-    <div class="product_img_desc_container">
-      <div class="product_image_container">
-        <img src="{% if product.image %}{{ product.image.url }}{% else %}
-        {% static 'images/no-image.jpeg' %}{% endif %}">
-      </div>
-      <div class="product_desc">
-        <p>{{ product.description | linebreaks}}</p>
-      </div>
+
+  <section class="equipment" id="equipment">
+    <!--<div class="back__button">
+      <a href="{{request.META.HTTP_REFERER}}">Назад</a>
     </div>
-    <div class="product_content">
-      <div class="price_forms">
-        <h3 class="product_price">
-          {{ product.price }} руб.
-        </h3>
-        <form class="product_detail_form" action="{% url 'cart:cart_add' product.id %}"
-              method="post">
-          {{ cart_product_form|join:"" }}
-          {% csrf_token %}
-          <input class="button_base blue_button" type="submit" value="Добавить в корзину">
-        </form>
+
+    <h2 class="equipment__title">{{ product.category.name }}</h2>-->
+
+    <div class="product__detail-wrapper">
+      <div class="product__detail-container">
+        <a>
+          <img class="equipment__img" src="{% if product.image %}{{ product.image.url }}{% else %}
+          {% static 'images/no-image.jpeg' %}{% endif %}" alt="Фото товара">
+        </a>  
+        <div class="equipment__description-container">
+          <p class="equipment__item-title">{{ product.name }}</p>
+
+          <div class="product__detail-item-description-text">
+            <p class="product__detail-item-description">{{ product.description | linebreaks}}
+            </p>
+          </div>
+
+          <p>Цена: <span class="equipment__price">{{ product.price }} р.</span></p>
+          <a class="equipment__link" >Посмотреть детали →</a>
+        </div>
+        </div>
+          <form 
+            class="equipment__bin-container" 
+            action="{% url 'cart:cart_add' product.id %}" 
+            method="post">
+              {{ cart_product_form|join:"" }}
+              {% csrf_token %}
+            <input class="equipment__link-add" type="submit" value="Добавить в корзину">
+          </form>
+<!--
+          <div class="equipment__bin-container">
+            <p class="equipment__link-add">Добавить в корзину</p>
+            <div class="equipment__bin"></div>
+          </div>-->
+        
+
       </div>
-      <h4>Характеристики</h4>
-      <p>
-        {{ product.features | linebreaks}}
-      </p>
-    </div>
-  </div>
+  </section>
+  <!--
+  <h2>Оборудование</h2>
+
+  <ul class="product__detail-wrapper">
+    <li>
+      <div class="product__img-desc-container">
+
+        <div class="product_image_container">
+          <img src="{% if product.image %}{{ product.image.url }}{% else %}
+          {% static 'images/no-image.jpeg' %}{% endif %}">
+        </div>
+
+        <div class="product_desc">
+          <p>{{ product.description | linebreaks}}</p>
+        </div>
+
+      </div>
+  
+      <h3>
+        <a href="{{ product.category.get_absolute_url }}">
+          {{ product.category }}
+        </a>
+      </h3>
+  
+      <h2>{{ product.name }}</h2>
+  
+      <div class="product_content">
+        <div class="price_forms">
+          <h3 class="product_price">
+            цена: {{ product.price }} руб.
+          </h3>
+
+          <form class="product_detail_form" action="{% url 'cart:cart_add' product.id %}"
+                method="post">
+            {{ cart_product_form|join:"" }}
+            {% csrf_token %}
+            <input class="button_base blue_button" type="submit" value="Добавить в корзину">
+          </form>
+
+        </div>
+        <h4>Характеристики</h4>
+        <p>
+          {{ product.features | linebreaks}}
+        </p>
+      </div>
+    </li>
+  
+  </ul>-->
 {% endblock %}

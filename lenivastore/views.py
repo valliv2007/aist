@@ -12,6 +12,7 @@ def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
+    cart_product_form = CartAddProductForm()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
@@ -48,17 +49,18 @@ def product_list(request, category_slug=None):
         # 'prev_url': prev_url,
         'category': category,
         'categories': categories,
-        'products': products
+        'products': products,
+        'cart_product_form': cart_product_form,
     }
     return render(request, 'lenivastore/product/list.html', context)
 
 
-def product_detail(request, id, slug):
+def product_detail(request, id, slug,):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     cart_product_form = CartAddProductForm()
     context = {
         'product': product,
-        'cart_product_form': cart_product_form
+        'cart_product_form': cart_product_form,
     }
     return render(request, 'lenivastore/product/detail.html', context)
 
