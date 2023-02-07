@@ -1,8 +1,12 @@
 .equipment {
   padding-bottom: 50px;
 }
+
 .equipment__title {
     display: flex;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
     margin: auto;
     margin-top: 0;
     margin-bottom: 50px;
@@ -43,7 +47,7 @@
     width: 100%;
     height: 250px;
     margin-bottom: 20px;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     background-color: #fff;
     border-radius: 20px;
     overflow: hidden;
@@ -61,9 +65,10 @@
 }
 
 .equipment__img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    /*object-fit: cover;*/
     cursor: pointer;
 }
 
@@ -82,9 +87,33 @@
 .equipment__item-title {
    /*margin-bottom: 20px;*/
    margin: 0;
+   /*
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;*/
 }
-.equipment__item-description {
 
+.equipment__item-description {
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+
+    text-overflow: ellipsis;
+
+    width: 80%;
+    height: 200px;
+}
+
+.equipment__item-description-text {
+    margin: 0;
+
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+
+    text-overflow: ellipsis;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .equipment__link {
@@ -95,14 +124,7 @@
     opacity: 0.7;
 }
 
-.equipment__link-add {
-   margin-right: 10px;
-   cursor: pointer;
-}
 
-.equipment__link-add:hover {
-    font-size: 18px;
-}
 
 .equipment__bin {
     /*background-image: url(../../../static/images/shoppingbin.svg);  
@@ -121,11 +143,42 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
+    
+
 }
+
+.equipment__link-add {
+    /*margin-right: 10px;*/
+    cursor: pointer;
+
+    width: 200px;
+    height: 50px;
+   
+    background-color: #f8dc80;
+    border: 1px solid rgb(247, 194, 20);
+    border-radius: 40px;
+    color: #212529;
+    cursor: pointer;
+
+    font-size: 16px;
+
+ }
+ 
+ .equipment__link-add:hover {
+    background-color: rgb(247, 194, 20);
+    border: 1px solid #f8dc80;
+ }
 
 .equipment__price {
     line-height: 30px;
     font-size: 18px;
     font-weight: 500;
-    margin-left: 5px;
+    
 }
+
+.equipment__img-container {
+    width: 210px;
+    height: 210px;
+    margin: 20px;
+}
+

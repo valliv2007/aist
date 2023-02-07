@@ -15,11 +15,17 @@
           <div class="cart_one_card">
             <h5 class="cart_card_name">{{ product.name }}</h5>
             <div class="cart_card_content">
-              <div class="cart_img_container">
-                <a href="{{ product.get_absolute_url }}">
-                  <img src="{{ product.image.url }}" alt="" />
+
+              <div class="detail-cart__img-container">
+                <a 
+                  class="detail-cart__img-link"
+                  href="{{ product.get_absolute_url }}">
+                    <img 
+                      class="detail-cart__img"
+                      src="{{ product.image.url }}" alt="" />
                 </a>
               </div>
+
               <div class="cart_add_delete_buttons">
                 <form action="{% url 'cart:cart_add' product.id %}" method="post"
                           class="add">

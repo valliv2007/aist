@@ -15,17 +15,17 @@
   <div class="header__title-container">
     <h1 class="header__title">Автоматизация. Информационные Системы. Технологии</h1>
     <div class="header__btn-container">
-      <button class="header__button">Перейти к выбору услуг</button>
-      <button class="header__button">Перейти к выбору оборудования</button>
+      <a class="header__button" href="{% url 'lenivastore:product_list_by_category' 'uslugi' %}">Перейти к выбору услуг</a>
+      <a class="header__button" href="{% url 'lenivastore:product_list_by_category' 'oborudovanie'%}">Перейти к выбору оборудования</a>
     </div>
   </div>
   <img src=../../../../static/images/hederpicture.png alt="Картинка" class="header__main-illustration">
   <div class="header__pattern-illustrarion"></div>
 </section>
 
-<section class="services" id="services">
+<!--<section class="services" id="services">
   <h2 class="services__title">Что мы предлагаем?</h2>
-<!--
+
   <ul class="services-cards">
     <li class="services-cards__item">
       <img src=../../../../static/images/pink.png alt="Картинка" class="services-cards__image">
@@ -73,6 +73,7 @@
   </ul>
 </section>-->
 <section class="services-general">
+  <h2 class="services__title">Что мы предлагаем?</h2>
   <ul class="services-general__cards">
 
     <li class="services-general__card">
