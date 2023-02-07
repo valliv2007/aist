@@ -2,11 +2,13 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
 
-from .models import Category, Product
+from .models import Category, News, Product
 from cart.forms import CartAddProductForm
 
 def index(request):
-     return render(request, 'lenivastore/product/index.html')
+     news = News.objects.all()
+     context = {'news': news}  
+     return render(request, 'lenivastore/product/index.html', context)
 
 def product_list(request, category_slug=None):
     category = None

@@ -284,6 +284,14 @@
 
   <section id="news" class="news">
     <h2 class="news__title">Новости ФНС и маркировки</h2>
+    {% for new in news %}
+    <div class="news__card">
+      <img class="news__card-img" src="{% if new.image %}{{ new.image.url }}{% else %}
+      {% static 'images/no-image.jpeg'%}{% endif %}" alt="Фото новости">
+      <a class="news__card-title" href="{{new.link }}">{{ new.title}} →</a>>
+    </div>
+    {% endfor %}
+
     <div class="news__cards">
       <div class="news__card">
         <img class="news__card-img" src=../../../../static/images/newspaper.jpg alt="Картинка">
