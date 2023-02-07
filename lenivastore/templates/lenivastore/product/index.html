@@ -11,6 +11,7 @@
 <div>
   
 <section class="header__top-container">
+
   <div class="header__vector-illustration"></div>
   <div class="header__title-container">
     <h1 class="header__title">Автоматизация. Информационные Системы. <br>Технологии</h1>
@@ -21,6 +22,7 @@
   </div>
   <img src=../../../../static/images/hederpicture.png alt="Картинка" class="header__main-illustration">
   <div class="header__pattern-illustrarion"></div>
+
 </section>
 
 <!--<section class="services" id="services">
@@ -175,6 +177,11 @@
       </div>
     </li>
   </ul>
+  
+  <a class="services-general__card-add-btn" href="{% url 'lenivastore:product_list_by_category' 'uslugi' %}">
+    Посмотреть все услуги
+  </a>
+
 </section>
 <section id="about" class="about">
   <h2 class="about__title">О компании</h2>
@@ -284,19 +291,22 @@
 
   <section id="news" class="news">
     <h2 class="news__title">Новости ФНС и маркировки</h2>
+    <div class="news__cards">
+
     {% for new in news %}
     <div class="news__card">
       <img class="news__card-img" src="{% if new.image %}{{ new.image.url }}{% else %}
       {% static 'images/no-image.jpeg'%}{% endif %}" alt="Фото новости">
-      <a class="news__card-title" href="{{new.link }}">{{ new.title}} →</a>>
+      <a class="news__card-title" href="{{new.link }}">
+          {{ new.title}} →
+      </a>
     </div>
     {% endfor %}
 
-    <div class="news__cards">
+    <!--
       <div class="news__card">
         <img class="news__card-img" src=../../../../static/images/newspaper.jpg alt="Картинка">
         <p class="news__card-title">Заявительный порядок предоставления налоговых льгот по транспортному и земельному налогам организаций →</p>
-
       </div>
       <div class="news__card">
         <img class="news__card-img" src=../../../../static/images/news.jpg alt="Картинка">
@@ -323,8 +333,9 @@
         <p class="news__card-title">Cеминар в ПАО «Центр Международной Торговли» →</p>
         
       </div>
+      -->
     </div>
-    <button class="news__card-btn">Посмотреть новости еще</button>
+
   </section>
 
   
