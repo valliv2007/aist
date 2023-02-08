@@ -12,7 +12,7 @@
     <a href="{{request.META.HTTP_REFERER}}">Назад</a>
   </div>-->
 
-  <h2 class="equipment__title">{% if category %}{{ category.name }}{% else %}Оборудование{% endif %}</h2>
+  <h2 class="equipment__title">{% if category %}{{ category.name }}{% else %}Наши предложения:{% endif %}</h2>
 
   <ul class="equipment__container">
     {% for product in page_object.object_list %}

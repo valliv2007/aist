@@ -2,12 +2,13 @@
     background-color: #212529;
     color: #666666;
     position: relative;
+    padding-top: 50px;
     /*margin-left: 50px;*/
 }
 
 .footer__title {
     margin-left: 50px;
-    padding-top: 50px;
+    
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 50px;
     line-height: 1;
@@ -65,11 +66,48 @@
     border: 4px solid #f8dc80;
 
     position: absolute;
-    top: 20px;
+    top: 50px;
     right: 70px;
 
 }
 
 .footer__logo:hover {
     border: 4px solid rgb(247, 194, 20);
+}
+
+@media screen and (max-width: 970px) {
+    .footer__logo  {
+        top: 30px;
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .footer__logo  {
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .footer__logo  {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .footer__logo  {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .footer__logo  {
+        width: 70px;
+        height: 70px;
+        top: 20px;
+        right: 20px;
+    }
 }

@@ -78,27 +78,30 @@
 
   <div class="wrapper" id="base_wrapper">
     <div class="header__contacts">
-      <nav class="header__contacts-nav-container">
-          <p class="header__contacts-container-li">телефон: <span class="header__contacts-span">8-916-245-22-22</span></p>
-          <p class="header__contacts-container-li">email: <span class="header__contacts-span">aist@yandex.ru</span></p>
-          <div class="header__contacts-nav-bin">
-              {% with total_items=cart|length %}
-                {% if cart|length > 0 %}
-                  <a href="{% url 'cart:cart_detail' %}">
-                    <i class="fa fa-shopping-cart icons" aria-hidden="true"></i>
-                    Корзина:
-                    {{ total_items }} тов.
-                    <span class="cart_price">{{ cart.get_total_price }} руб.</span>
-                  </a>
-                {% else %}
-                  <a href="{% url 'cart:cart_detail' %}">
-                    <i class="fa fa-shopping-cart icons" aria-hidden="true"></i>
-                    Корзина пуста
-                  </a>
-                {% endif %}
-              {% endwith %}
-          </div>
-      </nav>
+      <div class="header__contacts-nav-container">
+          <p class="header__contacts-container-li">Контакты: <span class="header__contacts-span">+7(962)440-07-40</span></p>
+          <p class="header__contacts-container-li"><span class="header__contacts-span">+7(8652)40-07-40</span></p>
+        <!--  <p class="header__contacts-container-li">email: <span class="header__contacts-span">support@it-aist.ru</span></p>-->
+          <a class="header__contacts-container-li header__contacts-container-li-mail" href="mailto:support@it-aist.ru">email: <span class="header__contacts-span">support@it-aist.ru</span></a>
+          
+      </div>
+      <div class="header__contacts-nav-bin">
+        {% with total_items=cart|length %}
+          {% if cart|length > 0 %}
+            <a class="header__contacts-nav-bin-link" href="{% url 'cart:cart_detail' %}">
+              <div class="fa fa-shopping-cart icons" aria-hidden="true"></div>
+              Корзина:
+              {{ total_items }} тов.
+              <span class="cart_price">{{ cart.get_total_price }} руб.</span>
+            </a>
+          {% else %}
+            <a class="header__contacts-nav-bin-link" href="{% url 'cart:cart_detail' %}">
+              <div class="fa fa-shopping-cart icons" aria-hidden="true"></div>
+              Корзина пуста
+            </a>
+          {% endif %}
+        {% endwith %}
+    </div>
     </div>
     <header id="header" class="header">
       <!--<span id="menu_header">
@@ -242,10 +245,12 @@
     <footer id="footer" class="footer">
       <h3 class="footer__title">Контакты:</h3>
     <div class="footer__container">
-      <p class="footer__name">ООО "Аист"</p>
-      <p class="footer__adress">Адрес головного офиса: пр-т. Энгельса, 73, Санкт-Петербург, Россия, 194214</p>  
-      <p class="footer__tel">+7 495 99 405 89</p>
-      <p class="footer__mail">info@aist.ru</p>
+      <!--<p class="footer__name">ООО "Аист"</p>-->
+      <p class="footer__name">Группа компаний А.И.С.Т.</p>  
+      <p class="footer__tel">+7(962)440-07-40</p>
+      <p class="footer__tel">+7(8652)40-07-40</p>
+      <p class="footer__mail">support@it-aist.ru</p>
+      <p class="footer__adress">Адрес головного офиса: пр-т. Энгельса, 73, Санкт-Петербург, Россия, 194214</p> 
     </div>
     <div class="footer__logo"></div>
     </footer>

@@ -5,18 +5,23 @@
 {% block title %}
   Ваша корзина товаров
 {% endblock %}
+<!--
+{{ product.name }}
 
+
+
+-->
 {% block content %}
 <div class="detail-bin">  
   {% if cart.get_total_price_after_discount %}
   
     <h3 class="detail-bin__title">Ваша корзина товаров</h3>
+
     <div class="detail-bin__carts">
       {% for item in cart %}
         {% with product=item.product %}
           <div class="detail-bin__card-item">
-            <h3 class="cart_card_name">{{ product.name }}</h3>
-            <div class="cart_card_content">
+            
               <div class="detail-bin-cart__img-container">
                 <a class="detail-bin-cart__img-link" href="{{ product.get_absolute_url }}">
                   <img class="detail-bin-cart__img"
@@ -24,22 +29,31 @@
                 </a>
               </div>
 
-              <div class="cart_add_delete_buttons">
-                <form action="{% url 'cart:cart_add' product.id %}" method="post"
-                          class="add">
-                  {{ item.update_quantity_form.quantity }}
-                  {{ item.update_quantity_form.update }}
-                  {% csrf_token %}
-                  <input type="submit" value="&#x267b;" alt="Обновить">
-                </form>
-                <a href="{% url 'cart:cart_remove' product.id %}">
-                  <i class="fa fa-ban" aria-hidden="true"></i>
-                </a>
+              <div class="detail-bin-cart__info-container">
+                <h3 class="detail-bin-cart__title">{{ product.name }}</h3>
+
+              <div class="detail-bin-cart__price-container">
+         
+                  <p class="detail-bin-cart__price">{{ item.total_price }} руб.</p>
+              
+                
+                  <form action="{% url 'cart:cart_add' product.id %}" 
+                        method="post"
+                        class="add">
+                    {{ item.update_quantity_form.quantity }}
+                    {{ item.update_quantity_form.update }}
+                    {% csrf_token %}
+                    <input class="detail-bin-cart__refresh" type="submit" value="Обновить" alt="Обновить">
+                  </form>
+                
               </div>
-              <div class="cart_card_price">
-                <p>{{ item.total_price }} руб.</p>
+
               </div>
-            </div>
+
+              <a class="detail-bin-cart__delete-btn-container" href="{% url 'cart:cart_remove' product.id %}">
+                <i class="detail-bin-cart__delete-btn" aria-hidden="true"></i>
+              </a>
+
           </div>
         {% endwith %}
       {% endfor %}
@@ -74,19 +88,18 @@
       </form>
     </div>-->
   {% else %}
-    <h3>Ваша корзина пуста</h3>
+    <h3 class="detail-bin__title">Ваша корзина пуста</h3>
+
   {% endif %}
-  <div class="content-section">
-    <div class="wrapper_cart_buttons">
-      <a href="{% url 'lenivastore:product_list'%}" class="button_base blue_button">
+    <div class="detail-bin__btn-container">
+      <a class="detail-bin__btn" href="{% url 'lenivastore:product_list'%}" class="button_base blue_button">
         Продолжить Шопинг
       </a>
       {% if cart.get_total_price %}
-        <a href="{% url 'orders:order_create' %}" class="button_base blue_button">
+        <a class="detail-bin__btn detail-bin__btn-checkout" href="{% url 'orders:order_create' %}" class="button_base blue_button">
           Оформить заказ
         </a>
       {% endif %}
     </div>
-  </div>
 </div>  
 {% endblock %}
