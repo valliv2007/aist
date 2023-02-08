@@ -9,10 +9,8 @@
 {% block content %}
 
   <section class="equipment" id="equipment">
-    <div class="back__button">
-      <a href="{{request.META.HTTP_REFERER}}">Назад</a>
-    </div>
-
+      <a class="back__button" href="{{request.META.HTTP_REFERER}}">Назад</a>
+      
    <h2 class="equipment__title">Карточка товара: {{ product.category.name }}</h2>
 
     <div class="product__detail-wrapper">
