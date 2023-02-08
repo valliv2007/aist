@@ -9,30 +9,33 @@
 {% block content %}
 
   <section class="equipment" id="equipment">
-    <!--<div class="back__button">
+    <div class="back__button">
       <a href="{{request.META.HTTP_REFERER}}">Назад</a>
     </div>
 
-    <h2 class="equipment__title">{{ product.category.name }}</h2>-->
+   <h2 class="equipment__title">Карточка товара: {{ product.category.name }}</h2>
 
     <div class="product__detail-wrapper">
+
       <div class="product__detail-container">
-        <a>
-          <img class="equipment__img" src="{% if product.image %}{{ product.image.url }}{% else %}
+        <a class="product__detail__img-container">
+          <img class="product__detail__img" src="{% if product.image %}{{ product.image.url }}{% else %}
           {% static 'images/no-image.jpeg' %}{% endif %}" alt="Фото товара">
         </a>  
         <div class="equipment__description-container">
           <p class="equipment__item-title">{{ product.name }}</p>
 
           <div class="product__detail-item-description-text">
-            <p class="product__detail-item-description">{{ product.description | linebreaks}}
-            </p>
+            <p class="product__detail-item-description">{{ product.description }}</p>
+            <p class="product__detail-item-description">{{ product.features }}</p>
           </div>
 
           <p>Цена: <span class="equipment__price">{{ product.price }} р.</span></p>
-          <a class="equipment__link" >Посмотреть детали →</a>
+          
         </div>
-        </div>
+      </div>
+
+
           <form 
             class="equipment__bin-container" 
             action="{% url 'cart:cart_add' product.id %}" 
@@ -41,14 +44,8 @@
               {% csrf_token %}
             <input class="equipment__link-add" type="submit" value="Добавить в корзину">
           </form>
-<!--
-          <div class="equipment__bin-container">
-            <p class="equipment__link-add">Добавить в корзину</p>
-            <div class="equipment__bin"></div>
-          </div>-->
-        
 
-      </div>
+    </div>
   </section>
   <!--
   <h2>Оборудование</h2>
