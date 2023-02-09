@@ -27,7 +27,8 @@
 .detail-bin-cart__img {
     width: 100px;
     height: 100px;
-    object-fit:contain;
+    /*object-fit:contain;*/
+    object-fit: cover;
 }
 
 .detail-bin__carts {
@@ -110,6 +111,7 @@
 .detail-bin-cart__price {
     margin: 0;
     margin-right: 20px;
+    width: 150px;
 }
 
 .detail-bin__btn {
@@ -165,7 +167,7 @@
     display: flex;
     margin: auto;
     margin-bottom: 50px;
-    margin-top: 50px;
+    margin-top: 0;
 }
 
 .detail-bin__btn-checkout {

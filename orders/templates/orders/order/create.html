@@ -7,16 +7,17 @@
 {% endblock %}
 
 {% block content %}
-  <div class="content-section">
-    <h2 class="control_group">Оформление заказа</h2>
-    <form action="." method="post">
+  <div class="create-order">
+    <h2 class="create-order__title">Оформление заказа</h2>
+  <div class="create-order__mail-container">  
+    <form class="create-order__form" action="." method="post">
       {% csrf_token %}
-      <fieldset class="form-group">
-        <legend>Заполните форму</legend>
+      <fieldset class="create-order__fieldset">
+        <h3>Заполните форму</h3>
         {{ form|crispy }}
       </fieldset>
-      <div class="form-group button_section">
-        <input class="button_base blue_button" type="submit" value="Подтвердить">
+      <div class="create-order__btn">
+        <input class="create-order__btn-inside" type="submit" value="Подтвердить">
       </div>
     </form>
 
@@ -45,5 +46,6 @@
         {{ cart.get_total_price_after_discount|floatformat:"2"}} руб.
       </p>
     </div>
+  </div>  
   </div>
 {% endblock %}
