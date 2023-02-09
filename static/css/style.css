@@ -9,6 +9,8 @@
 @import url(./blocks/services-general.css);
 @import url(./blocks/product.css);
 @import url(./blocks/detail-bin.css);
+@import url(./blocks/detail.css);
+@import url(./blocks/create-order.css);
 
 body {
   font-family: 'Open Sans', sans-serif;

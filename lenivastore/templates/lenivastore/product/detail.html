@@ -8,10 +8,12 @@
 
 {% block content %}
 
-  <section class="equipment" id="equipment">
-      <a class="back__button" href="{{request.META.HTTP_REFERER}}">Назад</a>
-      
-   <h2 class="equipment__title">Карточка товара: {{ product.category.name }}</h2>
+  <section class="detail" id="detail">
+    <a class="product__detail-close-btn" href="{{request.META.HTTP_REFERER}}">
+      <p>Закрыть</p>
+      <div class="product__detail-close-btn-img"></div>
+    </a>  
+   <h2 class="product__detail-title">Карточка товара: {{ product.category.name }}</h2>
 
     <div class="product__detail-wrapper">
 
@@ -19,28 +21,32 @@
         <a class="product__detail__img-container">
           <img class="product__detail__img" src="{% if product.image %}{{ product.image.url }}{% else %}
           {% static 'images/no-image.jpeg' %}{% endif %}" alt="Фото товара">
-        </a>  
-        <div class="equipment__description-container">
-          <p class="equipment__item-title">{{ product.name }}</p>
+        </a> 
+
+        <div class="detail__description-container">
+          <p class="product__detail-item-title">{{ product.name }}</p>
 
           <div class="product__detail-item-description-text">
+            <p class="product__detail-item-description-text-title">Описание:</p>
             <p class="product__detail-item-description">{{ product.description }}</p>
+            <p class="product__detail-item-description-text-title">Характеристики:</p>
             <p class="product__detail-item-description">{{ product.features }}</p>
           </div>
 
-          <p>Цена: <span class="equipment__price">{{ product.price }} р.</span></p>
+          <p class="detail__price">Цена: <span class="detail__price">{{ product.price }} р.</span></p>
           
         </div>
+
       </div>
 
 
           <form 
-            class="equipment__bin-container" 
+            class="detail__bin-container" 
             action="{% url 'cart:cart_add' product.id %}" 
             method="post">
               {{ cart_product_form|join:"" }}
               {% csrf_token %}
-            <input class="equipment__link-add" type="submit" value="Добавить в корзину">
+            <input class="detail__link-add" type="submit" value="Добавить в корзину">
           </form>
 
     </div>
