@@ -4,6 +4,34 @@
  */
 /* FONT PATH
  * -------------------------- */
+ @font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Inter-Regular.woff2?v=3.19") format("woff2"),
+       url("../fonts/Inter-Regular.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Inter-Bold.woff2?v=3.19") format("woff2"),
+       url("../fonts/Inter-Bold.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/Inter-Black.woff2?v=3.19") format("woff2"),
+       url("../fonts/Inter-Black.woff?v=3.19") format("woff");
+}
+
+
 @font-face {
   font-family: 'FontAwesome';
   src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
@@ -11,6 +39,31 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  src:
+  url(../fonts//fonts/inter-Bold.woff2) format('woff2'),
+  url(../fonts//fonts/inter-Bold.woff) format('woff');
+  font-family:Inter;
+  font-weight: 700;
+}
+
+@font-face {
+  src:
+  url(../fonts/inter-regular.woff2) format('woff2'),
+  url(../fonts/inter-regular.woff) format('woff');
+  font-family: Inter;
+  font-weight: 400;
+}
+
+@font-face {
+  src:
+  url(../fonts/inter-SemiBold.woff2) format('woff2'),
+  url(../fonts/inter-SemiBold.woff) format('woff');
+  font-family: Inter;
+  font-weight: 600;
+}
+/*
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -19,7 +72,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* makes the font 33% larger relative to the icon container */
+
 .fa-lg {
   font-size: 1.33333333em;
   line-height: 0.75em;
@@ -76,7 +129,7 @@
 .fa.fa-pull-right {
   margin-left: .3em;
 }
-/* Deprecated as of 4.4.0 */
+
 .pull-right {
   float: right;
 }
@@ -178,8 +231,7 @@
 .fa-inverse {
   color: #ffffff;
 }
-/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-   readers do not read off random characters that represent icons */
+
 .fa-glass:before {
   content: "\f000";
 }
@@ -2335,3 +2387,4 @@
   overflow: visible;
   clip: auto;
 }
+*/

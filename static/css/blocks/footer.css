@@ -3,13 +3,13 @@
     color: #666666;
     position: relative;
     padding-top: 50px;
+    min-height: 380px;
     /*margin-left: 50px;*/
 }
 
 .footer__title {
     margin-left: 50px;
-    
-    font-family: 'Open Sans', sans-serif;
+    margin-top: 0;
     margin-bottom: 50px;
     line-height: 1;
     font-size: 50px;
@@ -54,15 +54,15 @@
 }
 
 .footer__logo {
-    background-image: url(../../../static/images/logo.png);
+    background-image: url(../../../static/images/map.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    width: 300px;
+    width: 600px;
     height: 300px;
 
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     border: 4px solid #f8dc80;
 
     position: absolute;

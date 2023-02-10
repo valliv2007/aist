@@ -4,7 +4,7 @@
 }
 
 .product__detail-wrapper {
-    border: 5px solid orange;
+  /*  border: 5px solid orange;*/
     border-radius: 15px;
     max-width: 1600px;
     margin-left: 150px;
@@ -59,8 +59,8 @@
 }
 .product__detail__img {
   width: 300px;
-  height: 300px;
-  object-fit: contain;
+  max-height: 100%;
+  object-fit: cover;
   cursor: pointer;
 }
 
@@ -89,7 +89,6 @@
     margin: auto;
     margin-top: 0;
     margin-bottom: 50px;
-    font-family: 'Open Sans', sans-serif;
     color: black;
     line-height: 1.15;
     font-size: 46px;
@@ -137,11 +136,13 @@
   color: #212529;
   cursor: pointer;
   font-size: 16px;
+  transition: all 1s ;
 }
 
 .detail__link-add:hover {
   background-color: rgb(247, 194, 20);
   border: 1px solid #f8dc80;
+  transition: all 1s ;
 }
 
 .detail__description-container {
@@ -151,6 +152,7 @@
 .detail__price {
   margin-bottom: 20px;
   margin-top: 50px;
+  font-weight: 900;
   
 }
 
@@ -170,11 +172,13 @@
   position: absolute;
   right: 150px;
   top: 50px;
+  transition: all 1s ;
 }
 
 .product__detail-close-btn:hover {
   background-color: rgb(247, 194, 20);
   border: 1px solid #f8dc80;
+  transition: all 1s ;
 }
 
 .product__detail-close-btn-img {
