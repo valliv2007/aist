@@ -145,11 +145,17 @@
   margin-right: 20px;
 }
 
+.detail__price-name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
 .detail__price {
   margin-bottom: 20px;
   margin-top: 50px;
-  font-weight: 600;
-  
+  font-size: 22px;
+  font-weight: 400;
+  color: rgb(247, 176, 10);
 }
 /*
 .product__detail-back-link {

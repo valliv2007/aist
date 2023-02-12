@@ -34,7 +34,7 @@
             <p class="product__detail-item-description">{{ product.features }}</p>
           </div>
 
-          <p class="detail__price">Цена: <span class="detail__price">{{ product.price }} ₽</span></p>
+          <p class="detail__price-name">Цена: <span class="detail__price">{{ product.price|floatformat:"0" }} ₽</span></p>
           
         </div>
 
@@ -47,7 +47,7 @@
             method="post">
               {{ cart_product_form|join:"" }}
               {% csrf_token %}
-            <input class="detail__link-add" type="submit" value="Добавить в корзину">
+            <button class="detail__link-add" type="submit">Добавить в корзину</button>
           </form>
 
     </div>

@@ -31,7 +31,7 @@
         
         
 
-        <p class="equipment__price-name">Цена: <span class="equipment__price">{{ product.price }} ₽</span></p>
+        <p class="equipment__price-name">Цена: <span class="equipment__price">{{ product.price|floatformat:"0" }} ₽</span></p>
 
         <a class="equipment__link" href="{{ product.get_absolute_url }}?next={{request.path}}">Посмотреть детали →</a>
       </div>

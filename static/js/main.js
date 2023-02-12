@@ -42,3 +42,26 @@ export default class Popup {
       });
     };
   }
+
+  const r = document.querySelector('.detail-bin-cart__refresh');
+  r.addEventListener('click', function(){ alert('work');});
+
+/*
+  const refreshBtn = document.getElementById('detail-bin-cart__refresh')
+
+  function sayHello() {
+    alert('work');
+  }
+
+  refreshBtn.addEventListener('click', sayHello())
+
+  $.ajax({
+    url: "url_to_call",
+    type: "POST",
+    data: {  csrfmiddlewaretoken: "{{ csrf_token }}", //django needs this
+             data_item: mydata},
+    timeout:0,
+    success: function(data){//do something when done
+                      //data will be the string returned by HTTPResponse
+    }
+})*/
