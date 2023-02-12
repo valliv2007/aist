@@ -77,54 +77,51 @@
   <![endif]-->
 
   <div class="wrapper" id="base_wrapper">
-    
-    <div class="header__contacts">
-      <div class="header__contacts-nav-container">
-          <p class="header__contacts-container-li">Контакты: <span class="header__contacts-span">+7(962)440-07-40</span></p>
-          <p class="header__contacts-container-li"><span class="header__contacts-span">+7(8652)40-07-40</span></p>
-        <!--  <p class="header__contacts-container-li">email: <span class="header__contacts-span">support@it-aist.ru</span></p>-->
-          <a class="header__contacts-container-li header__contacts-container-li-mail" href="mailto:support@it-aist.ru">email: <span class="header__contacts-span">support@it-aist.ru</span></a>
-          
-      </div>
-      <div class="header__contacts-nav-bin">
-        {% with total_items=cart|length %}
-          {% if cart|length > 0 %}
-            <a class="header__contacts-nav-bin-link" href="{% url 'cart:cart_detail' %}">
-              <div class="fa fa-shopping-cart icons" aria-hidden="true"></div>
-              Корзина:
-              {{ total_items }} тов.
-              <span class="cart_price">{{ cart.get_total_price }} руб.</span>
-            </a>
-          {% else %}
-            <a class="header__contacts-nav-bin-link" href="{% url 'cart:cart_detail' %}">
-              <div class="fa fa-shopping-cart icons" aria-hidden="true"></div>
-              Корзина пуста
-            </a>
-          {% endif %}
-        {% endwith %}
-    </div>
-    </div>
     <header id="header" class="header">
-      <!--<span id="menu_header">
-        <div class="header__menu-icon"></div>
-      </span>-->
+    <!--  <div class="header__menu">-->
 
-      <a id="logo" class="logo" href="{% url 'lenivastore:index' %}">  <!--?next={{request.path}}--> 
-        <div class="header__logo"></div>
-        <p class="header__logo-text">А.И.С.Т.</p>
-      </a>
+      <div class="header__logo-and-wrapper">
 
-<!--<div id="search">
-            <form action="{% url 'lenivastore:product_list' %}">
-              <input type="search" placeholder="Поиск" aria-label="Search"
-                     name="search">
-              <button type="submit">
-                Искать
-              </button>
-            </form>
+        <a id="logo" class="logo" href="{% url 'lenivastore:index' %}">  <!--?next={{request.path}}--> 
+          <div class="header__logo"></div>
+          <p class="header__logo-text">А.И.С.Т.</p>
+        </a>
+
+      
+        <div class="header__contacts">
+
+          <div class="header__contacts-btn-container">
+            <p class="header__contacts-btn"><span class="header__contacts-btn-span">Контакты:</span> <span>+7(962)440-07-40</span></p>
+            <a class="header__contacts-btn" href="mailto:support@it-aist.ru"><span class="header__contacts-btn-span">Email:</span> <span>support@it-aist.ru</span></a>
+          </div>
+<!--
+          <div class="header__contacts-nav-container">
+            <p class="header__contacts-container-li">Контакты: <span class="header__contacts-span">+7(962)440-07-40</span></p>
+            <p class="header__contacts-container-li"><span class="header__contacts-span">+7(8652)40-07-40</span></p>
+            <a class="header__contacts-container-li header__contacts-container-li-mail" href="mailto:support@it-aist.ru">email:<span class="header__contacts-span">support@it-aist.ru</span></a>
           </div>-->
 
-        <nav>
+          <div class="header__contacts-nav-bin">
+          {% with total_items=cart|length %}
+            {% if cart|length > 0 %}
+              <a class="header__contacts-nav-bin-link" href="{% url 'cart:cart_detail' %}">
+                <div class="fa fa-shopping-cart icons" aria-hidden="true"></div>
+                Корзина:
+                {{ total_items }} тов.
+                <!--<span class="cart_price">{{ cart.get_total_price }} руб.</span>-->
+              </a>
+            {% else %}
+              <a class="header__contacts-nav-bin-link" href="{% url 'cart:cart_detail' %}">
+                <div class="fa fa-shopping-cart icons" aria-hidden="true"></div>
+                Корзина пуста
+              </a>
+            {% endif %}
+          {% endwith %}
+          </div>
+        </div>
+      </div>
+      
+      <nav>
           <ul class="header__link-container">
             <li class="header__link">
               <a class="header__link" 
@@ -152,81 +149,6 @@
             </li>
           </ul>
         </nav>
-        <!--    <li class="item_nav" id="cat_nav">
-              <a href="#">
-                <i class="fa fa-list-ul icons" aria-hidden="true"></i>
-                1C
-              </a>
-              <ul class="dropdown_menu">
-                <li {% if not category %} class="selected" {% endif %}>
-                  <a href="{% url 'lenivastore:product_list' %}">Все</a>
-                </li>
-                {% for cat in categories %}
-                  <li>
-                    <a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </li>
-            
-            <li class="item_nav">
-              {% with total_items=cart|length %}
-                {% if cart|length > 0 %}
-                  <a href="{% url 'cart:cart_detail' %}">
-                    <i class="fa fa-shopping-cart icons" aria-hidden="true"></i>
-                    Корзина:
-                    {{ total_items }} тов.
-                    <span class="cart_price">{{ cart.get_total_price }} руб.</span>
-                  </a>
-                {% else %}
-                  <a href="{% url 'cart:cart_detail' %}">
-                    <i class="fa fa-shopping-cart icons" aria-hidden="true"></i>
-                    Корзина пуста
-                  </a>
-                {% endif %}
-              {% endwith %}
-            </li>-->
-
-
-      <!--  <div class="header__into-container">
-          <a class="header__int-link" href="{% url 'login' %}">
-            <p>Войти</p>
-          </a>
-        </div>
--->
-
-
-
-<!--
-        <ul class="nav_links_right">
-          {% if user.is_authenticated %}
-            <li id="profile_link">
-              <a href="{% url 'users:profile' %}?next={{request.path}}">
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
-                Профиль
-              </a>
-            </li>
-            <li id="logout_link">
-              <a href="{% url 'logout' %}">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                Выход
-              </a>
-            </li>
-          {% else %}
-            <li>
-              <a class="color_black" href="{% url 'login' %}">
-                <i class="fa fa-sign-in icons" aria-hidden="true"></i>
-                Войти
-              </a>
-            </li>
-            <li>
-              <a class="color_black" href="{% url 'users:register' %}">
-                <i class="fa fa-user-plus icons" aria-hidden="true"></i>
-                Регистрация
-              </a>
-            </li>
-          {% endif %}
-          </ul>-->
     </header>
 
     <aside></aside>

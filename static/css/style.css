@@ -13,7 +13,7 @@
 @import url(./blocks/create-order.css);
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   color: #212529; 
   
   display: flex;

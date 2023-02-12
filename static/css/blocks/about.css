@@ -9,9 +9,8 @@
 .about__title {
     margin: auto;
     color: black;
-    font-family: 'Open Sans', sans-serif;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     line-height: 1.15;
     font-size: 60px;
     font-weight: 600;
@@ -25,8 +24,6 @@
 }
 
 .about__members-title {
-    
-    font-family: 'Open Sans', sans-serif;
     color: black;
     margin: auto;
     margin-top: 100px;

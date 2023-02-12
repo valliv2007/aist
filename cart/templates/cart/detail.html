@@ -93,7 +93,7 @@
   {% endif %}
     <div class="detail-bin__btn-container">
       <a class="detail-bin__btn" href="{% url 'lenivastore:product_list'%}" class="button_base blue_button">
-        Продолжить Шопинг
+        Продолжить покупки
       </a>
       {% if cart.get_total_price %}
         <a class="detail-bin__btn detail-bin__btn-checkout" href="{% url 'orders:order_create' %}" class="button_base blue_button">
