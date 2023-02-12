@@ -9,11 +9,12 @@
 {% block content %}
 
   <section class="detail" id="detail">
+    
     <a class="product__detail-close-btn" href="{{request.META.HTTP_REFERER}}">
-      <p>Закрыть</p>
-      <div class="product__detail-close-btn-img"></div>
+      <p> ← Назад</p>
+    <!--<div class="product__detail-close-btn-img"></div>-->
     </a>  
-   <h2 class="product__detail-title">Карточка товара: {{ product.category.name }}</h2>
+    <h2 class="product__detail-title">{{ product.name }}</h2>
 
     <div class="product__detail-wrapper">
 
@@ -33,7 +34,7 @@
             <p class="product__detail-item-description">{{ product.features }}</p>
           </div>
 
-          <p class="detail__price">Цена: <span class="detail__price">{{ product.price }} р.</span></p>
+          <p class="detail__price">Цена: <span class="detail__price">{{ product.price }} ₽</span></p>
           
         </div>
 

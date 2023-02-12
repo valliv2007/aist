@@ -12,6 +12,16 @@
 @import url(./blocks/detail.css);
 @import url(./blocks/create-order.css);
 
+input {
+  width: 600px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 body {
   font-family: 'Inter', Arial, sans-serif;
   color: #212529; 

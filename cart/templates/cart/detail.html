@@ -15,13 +15,13 @@
 <div class="detail-bin">  
   {% if cart.get_total_price_after_discount %}
   
-    <h3 class="detail-bin__title">Ваша корзина товаров</h3>
+    <h3 class="detail-bin__title">Ваша корзина</h3>
 
     <div class="detail-bin__carts">
       {% for item in cart %}
         {% with product=item.product %}
           <div class="detail-bin__card-item">
-            
+              
               <div class="detail-bin-cart__img-container">
                 <a class="detail-bin-cart__img-link" href="{{ product.get_absolute_url }}">
                   <img class="detail-bin-cart__img"
@@ -67,10 +67,10 @@
           <p>-{{ cart.get_discount|floatformat:"2" }} руб.</p>
         </span>
       {% endif %}-->
-      <span class="cart_sums">
-        <p>Всего </p>
-        <p>{{ cart.get_total_price_after_discount|floatformat:"2" }} руб.</p>
-      </span>
+      <div class="detail-bin__total-sum">
+        <p class="detail-bin__total-sum-title">Всего </p>
+        <p class="detail-bin__total-sum-price">{{ cart.get_total_price_after_discount|floatformat:"2" }} руб.</p>
+      </div>
     </div>
     <!--<input type="checkbox" id="cupon_hide" class="hide_button"/>
     <label class="button_base" for="cupon_hide" >Применить купон</label>

@@ -1,22 +1,26 @@
 .create-order {
     background-color: #f2f2f2;
+    padding-top: 50px;
 }
 
 .create-order__btn {
-    width: 200px;
+    width: 300px;
     height: 50px;
-    background-color: #f8dc80;
+   /* background-color: #f8dc80;*/
     border: 1px solid rgb(247, 194, 20);
     border-radius: 40px;
     color: #212529;
     cursor: pointer;
-    margin-bottom: 50px;
-    margin-top: 50px;
+
     font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    transition: all 1s ;
 }
 
 @media screen and (max-width: 800px) {
@@ -46,8 +50,12 @@
 }
 
 .create-order__btn:hover {
-    background-color: rgb(247, 194, 20);
+    background-color: #f1c430;
     border: 1px solid #f8dc80;
+    -webkit-box-shadow: 19px 15px 22px -8px rgba(34, 60, 80, 0.23);
+    -moz-box-shadow: 19px 15px 22px -8px rgba(34, 60, 80, 0.23);
+    box-shadow: 19px 15px 22px -8px rgba(34, 60, 80, 0.23);
+    transition: all 1s ;
 }
 
 .create-order__btn-inside {
@@ -74,12 +82,11 @@
 
 .create-order__title {
     margin: auto;
-    color: black;
     max-width: 500px;
     margin-bottom: 50px;
     line-height: 1.15;
-    font-size: 44px;
-    font-weight: 600;
+    font-size: 50px;
+    font-weight: 400;
 }
 
 @media screen and (max-width: 800px) {
