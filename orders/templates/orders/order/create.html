@@ -13,14 +13,14 @@
     <form class="create-order__form" action="." method="post">
       {% csrf_token %}
       <fieldset class="create-order__fieldset">
-        <h3>Заполните форму</h3>
+      <!--  <h3>Заполните форму</h3>-->
         {{ form|crispy }}
       </fieldset>
       <div class="create-order__btn">
         <input class="create-order__btn-inside" type="submit" value="Подтвердить">
       </div>
     </form>
-
+<!--
     <div class="control_group">
       <h2>Ваш заказ</h2>
       <ul class="products_margin">
@@ -45,7 +45,8 @@
         <strong>Всего:</strong>
         {{ cart.get_total_price_after_discount|floatformat:"2"}} руб.
       </p>
-    </div>
+    </div>-->
   </div>  
+  
   </div>
 {% endblock %}

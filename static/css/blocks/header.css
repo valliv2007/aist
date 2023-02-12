@@ -47,10 +47,15 @@
     align-items: center;
     padding: 0;
     z-index: 11;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #fff;
-    border-top: 2px solid #fff;
+    /*margin-top: 10px;
+    margin-bottom: 10px;*/
+    margin-top: 5px;
+    margin-bottom: 0px;
+    /*rgb(42, 143, 244)*/
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    
+    
 }
 
 .header__link {
@@ -59,9 +64,10 @@
     align-self: center;
     cursor: pointer;
     z-index: 11;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     transition: all 1s ;
+    color: #0c203b;
 }
 
 @media screen and (max-width: 600px) {
@@ -140,8 +146,8 @@
 
 .header__title {
     color: #292d30;
-    margin-bottom: 50px;
-    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-top: 50px;
     font-size: 54px;
     font-weight: 400;
 }
@@ -243,15 +249,14 @@
     -moz-box-shadow: 0px 2px 11px 8px rgba(34, 60, 80, 0.23);
     box-shadow: 0px 2px 11px 8px rgba(34, 60, 80, 0.23);
     transition: all 1s ;
-    width: 252px;
-    height: 72px;
-    font-size: 20px;
+   /* font-size: 20px;*/
 }
 
 .logo {
     display: flex;
     align-items: center;
-    height: 100px;
+    /*height: 100px;*/
+    height: 80px;
     width: 180px;
 }
 
@@ -262,8 +267,10 @@
     display: flex;
     background-image: url(../../images/logo.png);
     border: 2px solid #f8dc80;
-    width: 100px;
-    height: 100px;
+    /*width: 100px;
+    height: 100px;*/
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     margin: 0;
     padding: 0;
@@ -421,9 +428,9 @@
 .header__contacts-nav-bin {
     width: 200px;
     height: 40px;
-    background-color: #f2d36b;
+    background-color: rgb(251, 219, 115);
     /*border: 2px solid rgb(42, 143, 244);*/
-    /*border: 1px solid rgb(234, 188, 37);*/
+    border: 1px solid rgb(234, 188, 37);
     border-radius: 40px;
     color: #212529;
     cursor: pointer;

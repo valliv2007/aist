@@ -1,7 +1,4 @@
-.detail {
-  /*background-color: #f2f2f2;*/
-  position: relative;
-}
+
 
 .product__detail-wrapper {
   /*  border: 5px solid orange;*/
@@ -92,9 +89,8 @@
     color: black;
     line-height: 1.15;
     font-size: 46px;
-    max-width: 600px;
+    position: relative;
     font-weight: 400;
-
 }
 
 @media screen and (max-width: 800px) {
@@ -114,7 +110,7 @@
 }
 
 .product__detail-item-description-text-title {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
 }
 
@@ -152,9 +148,13 @@
 .detail__price {
   margin-bottom: 20px;
   margin-top: 50px;
-  font-weight: 900;
+  font-weight: 600;
   
 }
+/*
+.product__detail-back-link {
+
+}*/
 
 .product__detail-close-btn {
   cursor: pointer;
@@ -168,10 +168,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 50px;
-  position: absolute;
-  right: 150px;
-  top: 50px;
+  margin-left: 150px;
+  margin-bottom: 50px;
+  /*position: absolute;
+  left: 100px;
+  top: 200px;*/
   transition: all 1s ;
 }
 

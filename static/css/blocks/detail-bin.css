@@ -25,10 +25,10 @@
 }
 
 .detail-bin-cart__img {
+    
     width: 100px;
     height: 100px;
-    /*object-fit:contain;*/
-    object-fit: cover;
+    object-fit: scale-down;
 }
 
 .detail-bin__carts {
@@ -56,10 +56,10 @@
 
 .detail-bin__title {
     margin: auto;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     color: black;
-    font-size: 42px;
-    font-weight: 500;
+    font-size: 38px;
+    font-weight: 400;
     text-align: center;
 }
 
@@ -70,12 +70,17 @@
   /*border: 2px solid sandybrown;*/
   /*background-color: #fff;*/
   display: flex;
-  /*-webkit-box-shadow: 0px 5px 10px 2px #fff;
-  -moz-box-shadow: 0px 5px 10px 2px #fff;
-  box-shadow: 0px 5px 10px 2px #fff;*/
+ 
   border: 2px solid #fff;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.detail-bin__card-item:hover {
+    -webkit-box-shadow: 0px 2px 11px 8px rgba(34, 60, 80, 0.23);
+    -moz-box-shadow: 0px 2px 11px 8px rgba(34, 60, 80, 0.23);
+    box-shadow: 0px 2px 11px 8px rgba(34, 60, 80, 0.23);
 }
 
 .detail-bin-cart__info-container {
@@ -114,7 +119,7 @@
 .detail-bin__btn {
     width: 250px;
     height: 60px;
-    background-color: #f8dc80;
+    /*background-color: #f8dc80;*/
     border: 1px solid rgb(247, 194, 20);
     border-radius: 40px;
     color: #212529;
@@ -174,6 +179,7 @@
 
 .detail-bin__btn-checkout {
     margin-left: 50px;
+    background-color: #f8dc80;
 }
 
 @media screen and (max-width: 450px) {
@@ -190,14 +196,11 @@
 
 .detail-bin-cart__refresh {
     width: 85px;
-    height: 20px;
-    font-size: 14px;
+    height: 24px;
+    font-size: 12px;
     /*background-color: #f8dc80;
     border: 1px solid rgb(247, 194, 20);*/
-    border: 1px solid #f8dc80;
-    background-color: rgb(247, 194, 20);
-    border: none;
-    
+    border: 3px solid #fff;
     border-radius: 40px;
     color: #212529;
     cursor: pointer;
@@ -205,11 +208,12 @@
 }
 
 .detail-bin-cart__refresh:hover {
-    background-color: orange;
+    background-color: #f8dc80;
 }
 
 .detail-bin-cart__title {
-
+    font-size: 16px;
+    font-weight: 600;
 }
 
 @media screen and (max-width: 550px) {
@@ -250,4 +254,15 @@
     border: 1px solid #f8dc80;
 }
 
-.detail-bin__title {}
+.detail-bin__total-sum {
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.detail-bin__total-sum-title {
+    font-weight: 600;
+}
+
+.detail-bin__total-sum-price {
+    font-size: 18px;
+}

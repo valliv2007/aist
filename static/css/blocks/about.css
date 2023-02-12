@@ -12,8 +12,8 @@
     margin-top: 50px;
     margin-bottom: 20px;
     line-height: 1.15;
-    font-size: 60px;
-    font-weight: 600;
+    font-size: 56px;
+    font-weight: 400;
 }
 
 @media screen and (max-width: 800px) {
@@ -29,8 +29,8 @@
     margin-top: 100px;
     margin-bottom: 50px;
     line-height: 1.15;
-    font-size: 60px;
-    font-weight: 600;
+    font-size: 56px;
+    font-weight: 400;
     max-width: 1600px;
     text-align: center;
 }

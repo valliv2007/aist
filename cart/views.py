@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
+from django.http import HttpResponse
 
 from lenivastore.models import Product
 from cupons.forms import CuponApllyForm
@@ -16,7 +17,7 @@ def cart_add(request, product_id):
         cd = form.cleaned_data
         cart.add(product=product, quantity=cd['quantity'],
                                   update_quantity=cd['update'])
-    return redirect('cart:cart_detail')
+    return redirect('lenivastore:product_list_by_category', product.category.slug)
 
 
 def cart_remove(request, product_id):
