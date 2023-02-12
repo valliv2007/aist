@@ -34,16 +34,15 @@
 
               <div class="detail-bin-cart__price-container">
          
-                  <p class="detail-bin-cart__price">{{ item.total_price }} руб.</p>
+                  <p class="detail-bin-cart__price">{{ item.total_price|floatformat:"0" }} ₽</p>
               
-                
                   <form action="{% url 'cart:cart_add' product.id %}" 
                         method="post"
                         class="add">
                     {{ item.update_quantity_form.quantity }}
                     {{ item.update_quantity_form.update }}
                     {% csrf_token %}
-                    <input class="detail-bin-cart__refresh" type="submit" value="Обновить" alt="Обновить">
+                    <button id="detail-bin-cart__refresh" class="detail-bin-cart__refresh" type="submit">Обновить</button>
                   </form>
                 
               </div>
@@ -69,7 +68,7 @@
       {% endif %}-->
       <div class="detail-bin__total-sum">
         <p class="detail-bin__total-sum-title">Всего </p>
-        <p class="detail-bin__total-sum-price">{{ cart.get_total_price_after_discount|floatformat:"2" }} руб.</p>
+        <p class="detail-bin__total-sum-price">{{ cart.get_total_price_after_discount|floatformat:"0" }} ₽</p>
       </div>
     </div>
     <!--<input type="checkbox" id="cupon_hide" class="hide_button"/>

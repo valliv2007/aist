@@ -516,3 +516,7 @@
 .header__contacts-btn-span {
     color: rgb(42, 143, 244);
 }
+
+.header__icon-marg {
+    margin-right: 10px;
+}

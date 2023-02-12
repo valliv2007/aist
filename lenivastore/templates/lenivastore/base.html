@@ -101,17 +101,17 @@
             <a class="header__contacts-container-li header__contacts-container-li-mail" href="mailto:support@it-aist.ru">email:<span class="header__contacts-span">support@it-aist.ru</span></a>
           </div>-->
 
-          <div class="header__contacts-nav-bin">
+          <div>
           {% with total_items=cart|length %}
             {% if cart|length > 0 %}
-              <a class="header__contacts-nav-bin-link" href="{% url 'cart:cart_detail' %}">
-                <div class="fa fa-shopping-cart icons" aria-hidden="true"></div>
+              <a class="header__contacts-nav-bin" href="{% url 'cart:cart_detail' %}">
+                <div class="fa fa-shopping-cart icons header__icon-marg" aria-hidden="true"></div>
                 Корзина:
                 {{ total_items }} тов.
                 <!--<span class="cart_price">{{ cart.get_total_price }} руб.</span>-->
               </a>
             {% else %}
-              <a class="header__contacts-nav-bin-link" href="{% url 'cart:cart_detail' %}">
+              <a class="header__contacts-nav-bin" href="{% url 'cart:cart_detail' %}">
                 <div class="fa fa-shopping-cart icons" aria-hidden="true"></div>
                 Корзина пуста
               </a>
