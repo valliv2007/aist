@@ -36,7 +36,7 @@
          
                   <p class="detail-bin-cart__price">{{ item.total_price|floatformat:"0" }} ₽</p>
               
-                  <form action="{% url 'cart:cart_add' product.id %}" 
+                  <form action="{% url 'cart:cart_add_in_cart' product.id %}" 
                         method="post"
                         class="add">
                     {{ item.update_quantity_form.quantity }}
