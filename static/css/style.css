@@ -11,6 +11,7 @@
 @import url(./blocks/detail-bin.css);
 @import url(./blocks/detail.css);
 @import url(./blocks/create-order.css);
+@import url(./blocks/order-created-massage.css);
 
 input {
   width: 600px;
