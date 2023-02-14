@@ -1,0 +1,59 @@
+.order-created-massage {
+    background-color: #f2f2f2;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.order-created-massage__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 800px;
+    align-items: center;
+    border-radius: 30px;
+    background-color: #fff;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.order-created-massage__title {
+    text-align: center;
+}
+
+.order-created-massage__sub-title {
+    text-align: center;
+}
+
+.order-created-massage__info {
+    margin: 0;
+}
+
+.order-created-massage__ul{
+   /* margin-left: 50px;
+    margin-right: 50px;*/
+    width: 100%;
+}
+
+.order-created-massage__li {
+    padding: 5px;
+    border-radius: 20px;
+    height: 30px;
+    width: 100%;
+    border: 2px solid rgb(252, 194, 3);
+    background-color: #f2f2f2;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.order-created-massage__info-ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+  
+}
+.order-created-massage__info-li {
+    margin-bottom: 10px;
+}
