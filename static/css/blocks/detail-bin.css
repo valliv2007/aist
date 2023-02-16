@@ -70,7 +70,7 @@
   /*border: 2px solid sandybrown;*/
   /*background-color: #fff;*/
   display: flex;
- 
+  background-color: rgb(250, 228, 163);
   border: 2px solid #fff;
   position: relative;
   overflow: hidden;
