@@ -48,6 +48,7 @@
     display: flex;
     width: 100%;
     height: 250px;
+   
     margin-bottom: 20px;
     background-color: #fff;
     border-radius: 20px;
@@ -78,9 +79,13 @@
 
 .equipment__img {
     border-radius: 10%;
-    width: 210px;
-    height: 210px;
+    /*width: 210px;
+    height: 210px;*/
+    max-width: 100%;
+    min-width: 250px;
+    max-height: 210px;
     object-fit: cover;
+    min-height: 100px;
     cursor: pointer;
 }
 
@@ -189,7 +194,12 @@
 
 
 .equipment__img-container {
-    width: 210px;
-    height: 210px;
+    /*width: 210px;
+    height: 210px;*/
+    width: 250px;
+    height: 250px;
     margin: 20px;
+    display: flex;
+    justify-content: center;
+
 }
