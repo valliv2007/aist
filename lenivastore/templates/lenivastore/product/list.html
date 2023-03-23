@@ -40,7 +40,6 @@
           class="equipment__bin-container" 
           action="{% url 'cart:cart_add' product.id %}" 
           method="post">
-            {{ cart_product_form|join:"" }}
             {% csrf_token %}
             <button class="equipment__link-add" type="submit" value="Добавить в корзину">Добавить в корзину</button>
       <!--   <input class="equipment__link-add" type="submit" value="Добавить в корзину">-->
