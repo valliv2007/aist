@@ -2,11 +2,12 @@ import os
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
-from django.template.defaultfilters import slugify
+# from django.template.defaultfilters import slugify
 
 MAX_AMOUNT_STARS = 5
 MIN_AMOUNT_STARS = 0
 VALIDATOR_MESSAGE = f'Рейтинг/кол-во звезд от {MIN_AMOUNT_STARS} до {MAX_AMOUNT_STARS}'
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True,
@@ -26,9 +27,10 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('lenivastore:product_list_by_category', args=[self.slug])
 
+
 class Subcategory(models.Model):
-    name = models.CharField(max_length=100,verbose_name="Название")
-    slug = models.SlugField(max_length=100, unique=True)  
+    name = models.CharField(max_length=100, verbose_name="Название")
+    slug = models.SlugField(max_length=100, unique=True)
     category = models.ForeignKey(
         Category, related_name='subcategories',
         verbose_name="Категория",
@@ -42,7 +44,6 @@ class Subcategory(models.Model):
 
     def __str__(self):
         return self.name
-
 
 
 def get_upload_path(instance, filename):
@@ -78,8 +79,9 @@ class Product(models.Model):
         validators=(MaxValueValidator(MAX_AMOUNT_STARS, VALIDATOR_MESSAGE),
                     MinValueValidator(MIN_AMOUNT_STARS, VALIDATOR_MESSAGE)))
     stars = models.PositiveSmallIntegerField(
-        blank=True, null=True, verbose_name="Кол-во звезд", 
+        blank=True, null=True, verbose_name="Кол-во звезд",
         validators=(MaxValueValidator(MAX_AMOUNT_STARS, VALIDATOR_MESSAGE),))
+    is_popular = models.BooleanField(default=False, verbose_name="Популярный")
 
     class Meta:
         ordering = ('name',)
@@ -96,6 +98,7 @@ class Product(models.Model):
     # def save(self, *args, **kwargs):
     #     self.slug = slugify(self.brand_name)
     #     super(Brand, self).save(*args, **kwargs)
+
 
 class News (models.Model):
     title = models.CharField(max_length=100, verbose_name="Заголовок")
