@@ -5,10 +5,10 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from users import views as user_views
+# from users import views as user_views
 
 
-urlpatterns = [ 
+urlpatterns = [
     path('cart/', include('cart.urls', namespace='cart')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('payment/', include('payment.urls', namespace='payment')),
@@ -17,6 +17,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls', namespace='users')),
+    path('api/', include('api.urls', namespace='apy')),
     path('', include('lenivastore.urls'))
 ]
 

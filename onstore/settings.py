@@ -1,9 +1,8 @@
 import os
-#import django_heroku
+# import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -14,7 +13,7 @@ DEBUG = True
 
 CSRF_COOKIE_SECURE = os.environ.get('my_csrf_cookie_secure') == 'True'
 SESSION_COOKIE_SECURE = os.environ.get('my_session_cookie_secure') == 'True'
-#X_FRAME_OPTIONS = os.environ.get('my_x_frame_options')
+# X_FRAME_OPTIONS = os.environ.get('my_x_frame_options')
 SECURE_BROWSER_XSS_FILTER = os.environ.get('my_secure_browser_xss_filter') == 'True'
 SECURE_CONTENT_TYPE_NOSNIFF = os.environ.get('my_secure_content_type_nosniff') == 'True'
 SECURE_SSL_REDIRECT = os.environ.get('my_secure_ssl_redirect') == 'True'
@@ -34,6 +33,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'cupons.apps.CuponsConfig',
     'users.apps.UsersConfig',
+    'api.apps.ApiConfig',
     'crispy_forms',
     'phonenumber_field',
     'whitenoise.runserver_nostatic',
@@ -87,7 +87,7 @@ if not DEBUG:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-    
+
 else:
     DATABASES = {
         'default': {
@@ -98,8 +98,7 @@ else:
             'HOST': os.getenv('DB_HOST', 'database'),
             'PORT': os.getenv('DB_PORT', '5432')
         }
-    }    
-
+    }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -118,16 +117,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'Europe/Moscow' #'UTC'
+TIME_ZONE = 'Europe/Moscow'  # 'UTC'
 
 USE_I18N = True
 
 USE_L10N = True
 
-#USE_TZ = True
+# USE_TZ = True
 USE_THOUSAND_SEPARATOR = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -177,6 +175,6 @@ AWS_DEFAULT_ACL = None
 AWS_S3_REGION_NAME = os.environ.get('my_aws_s3_region_name')
 AWS_S3_SIGNATURE_VERSION = os.environ.get('my_aws_s3_signature_version')
 
-#DEFAULT_FILE_STORAGE = os.environ.get('my_default_file_storage')
+# DEFAULT_FILE_STORAGE = os.environ.get('my_default_file_storage')
 
-#django_heroku.settings(locals())
+# django_heroku.settings(locals())
