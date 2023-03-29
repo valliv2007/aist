@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'corsheaders',
     'storages',
     'sslserver',
 ]
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -176,6 +178,8 @@ AWS_DEFAULT_ACL = None
 
 AWS_S3_REGION_NAME = os.environ.get('my_aws_s3_region_name')
 AWS_S3_SIGNATURE_VERSION = os.environ.get('my_aws_s3_signature_version')
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 # DEFAULT_FILE_STORAGE = os.environ.get('my_default_file_storage')
 
