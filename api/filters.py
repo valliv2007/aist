@@ -1,6 +1,6 @@
 import django_filters
 
-from lenivastore.models import Product
+from lenivastore.models import Product, Subcategory
 
 
 class ProductFilter(django_filters.FilterSet):
@@ -12,3 +12,11 @@ class ProductFilter(django_filters.FilterSet):
     class Meta:
         model = Product
         fields = ('subcategory', 'is_popular', 'category', 'available')
+
+
+class SubcategoryFilter(django_filters.FilterSet):
+    category = django_filters.CharFilter(field_name='category__slug')
+
+    class Meta:
+        model = Subcategory
+        fields = ('category', )
