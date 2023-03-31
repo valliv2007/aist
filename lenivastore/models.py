@@ -66,8 +66,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=100, db_index=True)
     description = models.TextField(blank=True, verbose_name="Описание")  # Empty value
     features = models.TextField(blank=True, verbose_name="Характеристики")  # Empty value
-    price = models.DecimalField(max_digits=10, decimal_places=2,
-                                verbose_name="Цена")
+    price = models.PositiveIntegerField(verbose_name="Цена")
     available = models.BooleanField(default=True, verbose_name="Наличие")
     stock = models.PositiveIntegerField(verbose_name="Количество")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создан")
