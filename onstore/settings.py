@@ -84,7 +84,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'onstore.wsgi.application'
 
-if DEBUG:
+if not DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
