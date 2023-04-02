@@ -15,7 +15,7 @@ class Order(models.Model):
     address = models.CharField(max_length=150, blank=True, verbose_name="Адрес")
     postal_code = models.CharField(max_length=20, blank=True,
                                    verbose_name="Почтовый индекс")
-    city = models.CharField(max_length=100,blank=True, verbose_name="Город")
+    city = models.CharField(max_length=100, blank=True, verbose_name="Город")
     created = models.DateTimeField(auto_now_add=True,
                                    verbose_name="Заказ создан")
     updated = models.DateTimeField(auto_now=True, verbose_name="Заказ изменен")
@@ -61,3 +61,12 @@ class OrderItem(models.Model):
 
     def get_cost(self):
         return self.price * self.quantity
+
+
+class CallBack(models.Model):
+    name = models.CharField(max_length=30, verbose_name="Имя", blank=False)
+    phone_number = PhoneNumberField(blank=False, verbose_name="Телефон")
+
+    class Meta:
+        verbose_name = 'Обратный звонок'
+        verbose_name_plural = 'Обратные звонки'
