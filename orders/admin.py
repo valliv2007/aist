@@ -6,7 +6,7 @@ from django.utils.html import format_html
 import csv
 import datetime
 
-from .models import Order, OrderItem
+from .models import CallBack, Order, OrderItem
 
 
 def export_to_CSV(modeladmin, request, queryset):
@@ -42,6 +42,8 @@ def order_PDF(obj):
     return format_html('<a href="{}">PDF</a>'.format(
         reverse('orders:admin_order_PDF', args=[obj.id])
     ))
+
+
 order_PDF.short_description = 'В PDF'
 
 
@@ -60,3 +62,11 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
+
+
+class CallBackAdmin(admin.ModelAdmin):
+    list_display = ['name', 'phone_number']
+    search_fields = ('name',)
+
+
+admin.site.register(CallBack, CallBackAdmin)

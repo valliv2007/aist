@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from lenivastore.models import Product, Subcategory
+from orders.models import CallBack
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -17,4 +18,11 @@ class SubcategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Subcategory
+        fields = ('__all__')
+
+
+class CallBackSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CallBack
         fields = ('__all__')
