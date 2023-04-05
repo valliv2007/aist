@@ -11,5 +11,8 @@ TELEGRAM_CHAT_ID = os.getenv('PHONE_ID')
 
 def send_telegram(message):
     """Отправка сообщения ботом."""
-    bot = telegram.Bot(TELEGRAM_TOKEN)
-    bot.send_message(TELEGRAM_CHAT_ID, message)
+    try:
+        bot = telegram.Bot(TELEGRAM_TOKEN)
+        bot.send_message(TELEGRAM_CHAT_ID, message)
+    except telegram.error.TelegramError as error:
+        print(error)

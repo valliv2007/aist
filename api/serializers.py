@@ -7,6 +7,7 @@ from orders.models import CallBack
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.ReadOnlyField(source='category.slug')
     subcategory = serializers.ReadOnlyField(source='subcategory.slug')
+    quanity = serializers.ReadOnlyField(default=0)
 
     class Meta:
         model = Product

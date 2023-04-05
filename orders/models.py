@@ -65,7 +65,7 @@ class OrderItem(models.Model):
 
 class CallBack(models.Model):
     name = models.CharField(max_length=30, verbose_name="Имя", blank=False)
-    phone_number = PhoneNumberField(blank=False, verbose_name="Телефон")
+    phone_number = PhoneNumberField(blank=False, verbose_name="Телефон", unique=True)
 
     class Meta:
         verbose_name = 'Обратный звонок'
