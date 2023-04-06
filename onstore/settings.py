@@ -1,5 +1,8 @@
 import os
 # import django_heroku
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -84,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'onstore.wsgi.application'
 
-if not DEBUG:
+if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -155,15 +158,15 @@ CART_SESSION_ID = 'cart'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-EMAIL_BACKEND = os.environ.get('my_email_backend', 'django.core.mail.backends.filebased.EmailBackend')
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 EMAIL_HOST = os.environ.get('my_email_host')
-EMAIL_PORT = int(os.environ.get('my_email_port', 5225))
+EMAIL_PORT = int(os.environ.get('my_email_port'))
 EMAIL_HOST_USER = os.environ.get('my_email_host_user')
 EMAIL_HOST_PASSWORD = os.environ.get('my_email_host_password')
-EMAIL_USE_TLS = os.environ.get('my_email_use_tls') == 'True'
-EMAIL_USE_SSL = os.environ.get('my_email_use_ssl') == 'True'
-DEFAULT_FROM_EMAIL = os.environ.get('my_email_host_user')
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+# DEFAULT_FROM_EMAIL = os.environ.get('my_email_host_user')
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 PAYPAL_RECEIVER_EMAIL = os.environ.get('my_email_host_user')
