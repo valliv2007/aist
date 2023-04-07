@@ -5,8 +5,8 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Cupon(models.Model):
     code = models.CharField(max_length=50, unique=True,
                             verbose_name="Код купона")
-    valid_from = models.DateTimeField(verbose_name="Действителен с")
-    valid_to = models.DateTimeField(verbose_name="Действителен до")
+    valid_from = models.DateField(verbose_name="Действителен с")
+    valid_to = models.DateField(verbose_name="Действителен до")
     discount = models.IntegerField(validators=[MinValueValidator(0),
                                                MaxValueValidator(100)],
                                    verbose_name="Размер скидки")

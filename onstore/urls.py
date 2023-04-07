@@ -17,7 +17,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls', namespace='users')),
-    path('api/', include('api.urls', namespace='apy')),
+    path('api/', include('api.urls', namespace='api')),
     path('', include('lenivastore.urls'))
 ]
 
