@@ -36,7 +36,7 @@ class CuponSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cupon
-        fields = ('code', 'discount')
+        fields = ('id', 'code', 'discount')
 
     def get_discount(self, obj):
         return (1 - obj.discount/100)

@@ -7,10 +7,13 @@ load_dotenv()
 
 
 def sent_email(subject, message):
-    connection = get_connection()
-    connection.open()
-    email = EmailMultiAlternatives(
-            subject, message, settings.EMAIL_HOST_USER,
-            os.getenv('MAIL_LIST').split(), connection=connection)
-    email.send()
-    connection.close()
+    try:
+        connection = get_connection()
+        connection.open()
+        email = EmailMultiAlternatives(
+                subject, message, settings.EMAIL_HOST_USER,
+                os.getenv('MAIL_LIST').split(), connection=connection)
+        email.send()
+        connection.close()
+    except:
+        print('mail error')
