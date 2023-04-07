@@ -4,11 +4,13 @@ from rest_framework import viewsets
 
 from cupons.models import Cupon
 from lenivastore.models import Product, Subcategory
-from orders.models import CallBack
+from orders.models import CallBack, Order, OrderItem
 from .filters import ProductFilter, SubcategoryFilter
 from .mail import sent_email
 from .mixins import PostViewSet
-from .serializers import (CallBackSerializer, CuponSerializer, ProductSerializer, SubcategorySerializer)
+from .serializers import (CallBackSerializer, CuponSerializer,
+                          OrderSerializer, OrderItemListSerializer,
+                          ProductSerializer, SubcategorySerializer)
 from .telegram import send_telegram
 
 
@@ -47,3 +49,13 @@ class CuponViewSet(viewsets.ReadOnlyModelViewSet):
         valid_to__gte=dt.today().strftime('%Y-%m-%d'))
     serializer_class = CuponSerializer
     lookup_field = 'code'
+
+
+class OrderViewSet(PostViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+
+class OrderItemViewSet(PostViewSet):
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemListSerializer

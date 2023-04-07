@@ -10,13 +10,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('cart/', include('cart.urls', namespace='cart')),
-    path('paypal/', include('paypal.standard.ipn.urls')),
-    path('payment/', include('payment.urls', namespace='payment')),
+    # path('paypal/', include('paypal.standard.ipn.urls')),
+    # path('payment/', include('payment.urls', namespace='payment')),
     path('order/', include('orders.urls', namespace='orders')),
     path('cupons/', include('cupons.urls', namespace='cupon')),
-    path('admin/', admin.site.urls),
+    path('aistadmin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('users/', include('users.urls', namespace='users')),
+    # path('users/', include('users.urls', namespace='users')),
     path('api/', include('api.urls', namespace='api')),
     path('', include('lenivastore.urls'))
 ]
