@@ -1,5 +1,7 @@
 from datetime import datetime as dt
 from django_filters.rest_framework import DjangoFilterBackend
+from django.shortcuts import get_object_or_404
+from django.template.loader import render_to_string
 from rest_framework import viewsets
 
 from cupons.models import Cupon
@@ -59,3 +61,11 @@ class OrderViewSet(PostViewSet):
 class OrderItemViewSet(PostViewSet):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemListSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+        subject = "Новый заказ"
+        order = get_object_or_404(Order, id=serializer.data[0].get('order'))
+        message = render_to_string('orders/order/mail.txt', {'order': order})
+        sent_email(subject, message)
+        send_telegram(message)

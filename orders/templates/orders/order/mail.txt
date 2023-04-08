@@ -1,30 +1,19 @@
-Ваш заказ номер {{ order.id }}
+Новый заказ номер {{ order.id }}
 {{ order.created }}
 
-Покупатель
-{{ order.first_name }} {{ order.last_name }}<br>
-{{ order.address }} <br>
-{{ order.postal_code }}, {{ order.city }}
-
-Купленные товары
+Покупатель: {{ order.first_name }} 
+Телефон: {{order.phone_order}}
+{% if order.email %}
+Email: {{order.email}}
+{% endif %}
+Заказанные товары:
 {% for item in order.items.all %}
   * {{ item.product.name }} | {{ item.quantity }}шт. | {{ item.price }}руб. | Общая цена {{ item.get_cost }}руб.
 {% endfor %}
-
 {% if order.cupon %}
-    Сумма без скидки {{ order.get_total_cost_no_sale }}
-    {{ order.cupon.code }} купон на ({{ order.cupon.discount }} % ниже) {{ order.get_order_discount|floatformat:"2" }}руб.
+Сумма без скидки {{ order.get_total_cost_no_sale }}руб.
+Применен купон {{ order.cupon.code }}(скидка {{ order.cupon.discount }} % ) 
+-{{ order.get_order_discount }}руб.
 {% endif %}
+Окончательная стоимость заказа: {{ order.order_price }}руб.
 
-Стоимость заказа {{ order.get_total_cost }}руб.
-
-{% if order.paid == False and order.card_paid == False %}
-  Оплата при получении
-{% elif order.paid %}
-  Оплачен
-{% else %}
-  Не оплачен
-{% endif %}
-
-Спасибо что сделали заказ, к email сообщению прикреплен PDF файл с информацией о вашем заказе.
-А.И.С.Т.
