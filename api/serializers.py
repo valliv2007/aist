@@ -10,6 +10,7 @@ class ProductSerializer(serializers.ModelSerializer):
     subcategory = serializers.ReadOnlyField(source='subcategory.slug')
     quantity = serializers.ReadOnlyField(default=1)
     total_price = serializers.ReadOnlyField(source='price')
+    is_in_bag = serializers.ReadOnlyField(default=1)
 
     class Meta:
         model = Product
