@@ -160,10 +160,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
-EMAIL_HOST = os.environ.get('my_email_host')
-EMAIL_PORT = int(os.environ.get('my_email_port'))
-EMAIL_HOST_USER = os.environ.get('my_email_host_user')
-EMAIL_HOST_PASSWORD = os.environ.get('my_email_host_password')
+EMAIL_HOST =  os.getenv('my_email_host')
+EMAIL_PORT = int( os.getenv('my_email_port'))
+EMAIL_HOST_USER =  os.getenv('my_email_host_user')
+EMAIL_HOST_PASSWORD =  os.getenv('my_email_host_password')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 # DEFAULT_FROM_EMAIL = os.environ.get('my_email_host_user')
