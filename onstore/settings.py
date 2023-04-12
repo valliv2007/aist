@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('my_secret_key', "שלום")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CSRF_COOKIE_SECURE = os.environ.get('my_csrf_cookie_secure') == 'True'
 SESSION_COOKIE_SECURE = os.environ.get('my_session_cookie_secure') == 'True'
@@ -24,7 +24,7 @@ SECURE_HSTS_SECONDS = int(os.environ.get('my_hsts_seconds', 5))
 SECURE_HSTS_PRELOAD = os.environ.get('my_secure_hsts_preload') == 'True'
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '46.17.248.63', '213.184.131.218']
 
 # Application definition
 
@@ -87,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'onstore.wsgi.application'
 
-if not DEBUG:
+if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -156,7 +156,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CART_SESSION_ID = 'cart'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
