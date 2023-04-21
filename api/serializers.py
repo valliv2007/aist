@@ -1,5 +1,4 @@
-from rest_framework import serializers
-
+from rest_framework import exceptions, serializers
 from cupons.models import Cupon
 from lenivastore.models import Product, Subcategory
 from orders.models import CallBack, Order, OrderItem
@@ -26,10 +25,19 @@ class SubcategorySerializer(serializers.ModelSerializer):
 
 
 class CallBackSerializer(serializers.ModelSerializer):
+    phone_number = serializers.CharField()
 
     class Meta:
         model = CallBack
         fields = ('__all__')
+
+    def validate_phone_number(self, data):
+        try:
+            if CallBack.objects.filter(phone_number=data).exists():
+                raise exceptions.NotAcceptable('Такой номер телефона уже существует')
+        except ValueError:
+            raise exceptions.ParseError('Неверный формат номера телефона')
+        return data
 
 
 class CuponSerializer(serializers.ModelSerializer):
