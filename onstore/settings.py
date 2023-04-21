@@ -24,7 +24,7 @@ SECURE_HSTS_SECONDS = int(os.environ.get('my_hsts_seconds', 5))
 SECURE_HSTS_PRELOAD = os.environ.get('my_secure_hsts_preload') == 'True'
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '46.17.248.63', '213.184.131.218']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '46.17.248.63', '213.184.131.218', '172.16.21.229', 'it-aist.ru']
 
 # Application definition
 
@@ -183,6 +183,7 @@ AWS_S3_REGION_NAME = os.environ.get('my_aws_s3_region_name')
 AWS_S3_SIGNATURE_VERSION = os.environ.get('my_aws_s3_signature_version')
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_URLS_REGEX = r'^/api/.*$'
 
 # DEFAULT_FILE_STORAGE = os.environ.get('my_default_file_storage')
 

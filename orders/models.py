@@ -1,7 +1,7 @@
 from django.db import models
 from lenivastore.models import Product
 from cupons.models import Cupon
-from decimal import Decimal
+# from decimal import Decimal
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -40,11 +40,9 @@ class Order(models.Model):
 
     def get_total_cost_no_sale(self):
         return sum(item.get_cost() for item in self.items.all())
-    
-    
+
     def get_order_discount(self):
         return self.get_total_cost_no_sale() - self.order_price
-
 
 
 class OrderItem(models.Model):
