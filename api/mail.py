@@ -15,5 +15,5 @@ def sent_email(subject, message):
                 os.getenv('MAIL_LIST').split(), connection=connection)
         email.send()
         connection.close()
-    except:
-        print('mail error')
+    except Exception as error:
+        print(f'mail error {error}')
