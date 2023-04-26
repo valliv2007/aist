@@ -70,3 +70,8 @@ class OrderItemListSerializer(serializers.ListSerializer):
 
     def create(self, validated_data):
         return [OrderItem.objects.create(**item) for item in validated_data]
+
+    def validate(self, data):
+        if not data:
+            raise exceptions.ParseError('Данные не переданы')
+        return data
