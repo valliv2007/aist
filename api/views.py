@@ -9,7 +9,7 @@ from lenivastore.models import Product, Subcategory
 from orders.models import CallBack, Order, OrderItem
 from .filters import ProductFilter, SubcategoryFilter
 from .mail import sent_email
-from .mixins import PostViewSet
+from .mixins import OnlyRetriveSet, PostViewSet
 from .serializers import (CallBackSerializer, CuponSerializer,
                           OrderSerializer, OrderItemListSerializer,
                           ProductSerializer, SubcategorySerializer)
@@ -44,7 +44,7 @@ class CallBackViewSet(PostViewSet):
         send_telegram(message)
 
 
-class CuponViewSet(viewsets.ReadOnlyModelViewSet):
+class CuponViewSet(OnlyRetriveSet):
 
     queryset = Cupon.objects.filter(
         active=True, valid_from__lte=dt.today().strftime('%Y-%m-%d'),
