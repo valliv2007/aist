@@ -21,7 +21,7 @@ if settings.DEBUG:
         # path('payment/', include('payment.urls', namespace='payment')),
         path('order/', include('orders.urls', namespace='orders')),
         path('cupons/', include('cupons.urls', namespace='cupon')),
-        path('accounts/', include('django.contrib.auth.urls')),
         # path('users/', include('users.urls', namespace='users')),
+        path('accounts/', include('django.contrib.auth.urls')),
         path('', include('lenivastore.urls'))
     ]
