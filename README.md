@@ -1,6 +1,6 @@
 # On-line store  AIST
 ### Description of the project:
-"Grocery Assistant" is a website where you can order goods for sellers (cash registers, qrcode-scaners, label printers and etc) . Here's what was done during the work on the project:
+"AIST" is a website where you can order goods for sellers (cash registers, qrcode-scaners, label printers and etc) . Here's what was done during the work on the project:
 configured interaction of a Python application with external API services;
 created a custom API service based on the Django project;
 connected SPA to the backend on Django via API;
